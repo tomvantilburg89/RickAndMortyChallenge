@@ -26,6 +26,16 @@ Just some notes about myself and how I see the future, this is just a bonus and 
 ---
 # Usage guide
 
+### Installing and running the program
+
+```bash
+    git clone 
+```
+
+```bash
+    docker compose build --no-cache --pull && docker up -d
+```
+
 > TODO: Add steps to take in order to run this project. 
 
 > TODO: Update this section of the README.md accordingly during the development process
@@ -38,7 +48,7 @@ Just some notes about myself and how I see the future, this is just a bonus and 
 1. Create git repository on new account
 2. Install symfony CLI in local `WSL2` environment
     ```bash
-    $ wget https://get.symfony.com/cli/installer -O - | bash
+    wget https://get.symfony.com/cli/installer -O - | bash
     ```
 3. Setup JIRA Project for Bax Rick and Morty Challenge
     - JIRA issue key: `BAXRMC`
@@ -47,38 +57,49 @@ Just some notes about myself and how I see the future, this is just a bonus and 
 
 - `BAXRMC-1` Create new symfony project 
 - `BAXRMC-2` Update `README.md` and `.gitignore`
-- `BAXRMC-3` Setup Symfony docker skeleton, see [**`used resources`**](#resources)
+- `BAXRMC-3` Setup Symfony docker skeleton
+    - **@see [`Used resources`](#used-resources-1)**
     
     ```bash 
-        $ git clone git@github.com:dunglas/symfony-docker.git
+        git clone git@github.com:dunglas/symfony-docker.git
     ```
 
     ```bash 
-        $ cd symfony-docker
+        cd symfony-docker
     ```
 
     ```bash
-        $ git archive --format=tar HEAD | tar -xC ../
+        git archive --format=tar HEAD | tar -xC ../
     ```
 
     ```bash
-        $ cd ../ && rm -rf symfony-docker
+        cd ../ && rm -rf symfony-docker
     ```
 
     ```bash
-        $ composer config --json extra.symfony.docker 'true'
+        composer config --json extra.symfony.docker 'true'
     ```
 
     ```bash
-        $ rm symfony.lock
-        $ composer recipes:install --force --verbose
+        rm symfony.lock
+        composer recipes:install --force --verbose
     ```
 
     ```bash
-        $ git diff
+        git diff
     ```
-- `BAXRMC-4` Create Rick and Morty API service for the Service container
-    - Because a service would suit this assignment perfectly due to `method injection`
+- `BAXRMC-7` Create Rick and Morty API service for the Service container
+
+Prospect ISSUES
+
+- Create search
+- Create pages/routes/retrieval controller
+- Create views
+- Create user controller
+- Create simple login
+- Create functionality to store favorited items to database
+- Create add to favorites controller
+
 
 # Used resources
 
@@ -87,6 +108,8 @@ Here are the resources used to develop this code challenge application for the `
 - [Install Symfony CLI](https://symfony.com/download)
 - [Installing & Setting up the Symfony Framework](https://symfony.com/doc/current/setup.html)
 - [Add Docker skeleton to existing symfony project](https://github.com/dunglas/symfony-docker/blob/main/docs/existing-project.md)
+
+
 ---
 # Developer side notes 
 
