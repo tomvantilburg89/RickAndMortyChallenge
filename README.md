@@ -21,7 +21,7 @@ Here are the resources used to develop this code challenge application for the `
 
 - [Install Symfony CLI](https://symfony.com/download)
 - [Installing & Setting up the Symfony Framework](https://symfony.com/doc/current/setup.html)
-- [Add Docker skeleton to existing symfony project](ttps://github.com/dunglas/symfony-docker/blob/main/docs/existing-project.md)
+- [Add Docker skeleton to existing symfony project](https://github.com/dunglas/symfony-docker/blob/main/docs/existing-project.md)
 ---
 # Developer side notes 
 
