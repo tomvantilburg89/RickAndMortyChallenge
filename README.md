@@ -1,51 +1,96 @@
-# Symfony Docker
+# RickAndMortyChallenge
+The bax-music Rick and Morty (backend) code challenge, add explanation here once the challenge arrives. 
 
-A [Docker](https://www.docker.com/)-based installer and runtime for the [Symfony](https://symfony.com) web framework,
-with [FrankenPHP](https://frankenphp.dev) and [Caddy](https://caddyserver.com/) inside!
+---
+# Challenge development introduction
 
-![CI](https://github.com/dunglas/symfony-docker/workflows/CI/badge.svg)
+### [Usage guide](#usage-guide-1)
+This section will explain in full detail how to run the project and how to use the project
 
-## Getting Started
+### [Development flow log](#development-flow-log-1)
+This section will keep track of the entire development process, how I engaged in the project and what steps I took in order to give a full detailed insight in my development process.
 
-1. If not already done, [install Docker Compose](https://docs.docker.com/compose/install/) (v2.10+)
-2. Run `docker compose build --no-cache` to build fresh images
-3. Run `docker compose up --pull always -d --wait` to set up and start a fresh Symfony project
-4. Open `https://localhost` in your favorite web browser and [accept the auto-generated TLS certificate](https://stackoverflow.com/a/15076602/1352334)
-5. Run `docker compose down --remove-orphans` to stop the Docker containers.
+in **project initialisation** are just the simple steps taking on initialising the project requirements for development like: `GitHub`, `JIRA` etc. Just out of the need of being extremely verbose, I decided to incorporate these steps. 
 
-## Features
+in **JIRA Project issues** are all my `kanban` tasks from my personal JIRA account. Because I am  used working  this way for a couple of years, I keep this habit also for my personal projects because I like to be able to see what I did, what I need to do and what my overal process was in all my development projects to date. Also it keeps me sharp and focussed when working in development teams. 
+This section will keep track of the entire development process, how I engaged in the project and what steps I took in order to give a full detailed insight in my development process.
 
-* Production, development and CI ready
-* Just 1 service by default
-* Blazing-fast performance thanks to [the worker mode of FrankenPHP](https://github.com/dunglas/frankenphp/blob/main/docs/worker.md) (automatically enabled in prod mode)
-* [Installation of extra Docker Compose services](docs/extra-services.md) with Symfony Flex
-* Automatic HTTPS (in dev and prod)
-* HTTP/3 and [Early Hints](https://symfony.com/blog/new-in-symfony-6-3-early-hints) support
-* Real-time messaging thanks to a built-in [Mercure hub](https://symfony.com/doc/current/mercure.html)
-* [Vulcain](https://vulcain.rocks) support
-* Native [XDebug](docs/xdebug.md) integration
-* Super-readable configuration
+### [Used resources](#used-resources-1)
 
-**Enjoy!**
+In here you will be able to find all documentation links, repositories etcetera that I have used during this challenge. This is more or less for myself, but also for the ones that need to review my challenge, as they can exactly see how I engaged and what sources I've used to tackle this assignment.
 
-## Docs
+### [Developer side notes](#developer-side-notes-1)
 
-1. [Options available](docs/options.md)
-2. [Using Symfony Docker with an existing project](docs/existing-project.md)
-3. [Support for extra services](docs/extra-services.md)
-4. [Deploying in production](docs/production.md)
-5. [Debugging with Xdebug](docs/xdebug.md)
-6. [TLS Certificates](docs/tls.md)
-7. [Using MySQL instead of PostgreSQL](docs/mysql.md)
-8. [Using Alpine Linux instead of Debian](docs/alpine.md)
-9. [Using a Makefile](docs/makefile.md)
-10. [Updating the template](docs/updating.md)
-11. [Troubleshooting](docs/troubleshooting.md)
+Just some notes about myself and how I see the future, this is just a bonus and a minor reflection of my enthusiasm engaging this challenge and my prospect for the company I am applying to. 
 
-## License
+---
+# Usage guide
 
-Symfony Docker is available under the MIT License.
+> TODO: Add steps to take in order to run this project. 
 
-## Credits
+> TODO: Update this section of the README.md accordingly during the development process
 
-Created by [Kévin Dunglas](https://dunglas.dev), co-maintained by [Maxime Helias](https://twitter.com/maxhelias) and sponsored by [Les-Tilleuls.coop](https://les-tilleuls.coop).
+---
+# Development flow log
+
+### 1. Project Initialisation
+
+1. Create git repository on new account
+2. Install symfony CLI in local `WSL2` environment
+    ```bash
+    $ wget https://get.symfony.com/cli/installer -O - | bash
+    ```
+3. Setup JIRA Project for Bax Rick and Morty Challenge
+    - JIRA issue key: `BAXRMC`
+
+### 2. JIRA Project issues
+
+- `BAXRMC-1` Create new symfony project 
+- `BAXRMC-2` Update `README.md` and `.gitignore`
+- `BAXRMC-3` Setup Symfony docker skeleton, see [**`used resources`**](#resources)
+    
+    ```bash 
+        $ git clone git@github.com:dunglas/symfony-docker.git
+    ```
+
+    ```bash 
+        $ cd symfony-docker
+    ```
+
+    ```bash
+        $ git archive --format=tar HEAD | tar -xC ../
+    ```
+
+    ```bash
+        $ cd ../ && rm -rf symfony-docker
+    ```
+- `BAXRMC-4` Create Rick and Morty API service for the Service container
+    - Because a service would suit this assignment perfectly due to `method injection`
+
+# Used resources
+
+Here are the resources used to develop this code challenge application for the `Bax Music Rick and Morty Code Challenge`
+
+- [Install Symfony CLI](https://symfony.com/download)
+- [Installing & Setting up the Symfony Framework](https://symfony.com/doc/current/setup.html)
+- [Add Docker skeleton to existing symfony project](https://github.com/dunglas/symfony-docker/blob/main/docs/existing-project.md)
+---
+# Developer side notes 
+
+**9/05/2024** - pre-assignment challenge notes
+
+Currently (at point of writing this README.md) I have not yet received the challenge, however I found an old repository from a different developer, that I am currently using as a reference as it's kind of already clear what the assignment will be. 
+
+However at this time, I am not making false assumptions and are merely developing from that specific repository point of view and will finalize/alter this repository according to the challenge when time arrives. 
+
+---
+
+Recently I had a job interview at Bax-Music and they required me to do a coding challenge incorporating the Rick and Morty API. 
+
+I have decided to start my development career from scratch and open up a new GitHub account to accommodate the new career path. In this new GitHub account I will keep updating my path in the future as I will attend college in September and due to this knowledge I have decided it's time to move to a new account, because it's definitely going to mark a new chapter in my life and ambitions. My old repositories will remain online, more for personal references but the account corresponding to the repositories will be abandoned. 
+
+- Gists
+- Personal projects
+- Academic assigments
+
+The company is the best of both worlds to me, because I am already a musician and amateur music producer and my other passion is Software- and webdevelopment. I am very enthusiastic to start this new chapter because of this knowledge.
