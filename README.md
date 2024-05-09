@@ -36,10 +36,6 @@ Just some notes about myself and how I see the future, this is just a bonus and 
     docker compose build --no-cache --pull && docker up -d
 ```
 
-> TODO: Add steps to take in order to run this project. 
-
-> TODO: Update this section of the README.md accordingly during the development process
-
 ---
 # Development flow log
 
@@ -85,9 +81,6 @@ Just some notes about myself and how I see the future, this is just a bonus and 
         composer recipes:install --force --verbose
     ```
 
-    ```bash
-        git diff
-    ```
 - `BAXRMC-7` Create Rick and Morty API service for the Service container
 
 Prospect ISSUES
@@ -100,6 +93,7 @@ Prospect ISSUES
 - Create functionality to store favorited items to database
 - Create add to favorites controller
 
+---
 
 # Used resources
 
@@ -108,9 +102,23 @@ Here are the resources used to develop this code challenge application for the `
 - [Install Symfony CLI](https://symfony.com/download)
 - [Installing & Setting up the Symfony Framework](https://symfony.com/doc/current/setup.html)
 - [Add Docker skeleton to existing symfony project](https://github.com/dunglas/symfony-docker/blob/main/docs/existing-project.md)
-
+- [Symfony Service Container](https://symfony.com/doc/current/service_container.html)
+- [Symfony HTTP Client](https://symfony.com/doc/current/http_client.html)
+- [The Rick and Morty API](https://rickandmortyapi.com/)
 
 ---
+# Used tools
+
+- WSL2 (Windows Subsystem for Linux)
+    - Because I am a power user, but can't get around using linux <3
+- Postman, to test API endpoints
+- IntelliJ PHPStorm, to develop the application
+- Git, to make use of version control
+- Bash, to make terminal commands
+- Docker, because containerization is king
+
+---
+
 # Developer side notes 
 
 **9/05/2024** - pre-assignment challenge notes
