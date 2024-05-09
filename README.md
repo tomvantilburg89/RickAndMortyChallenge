@@ -4,37 +4,33 @@ The bax-music Rick and Morty (backend) code challenge, add explanation here once
 ---
 # Challenge development introduction
 
-### [Usage guide](#usage-guide)
+### [Usage guide](#usage-guide-1)
 This section will explain in full detail how to run the project and how to use the project
 
-### [Development flow log](#development-flow-log)
+### [Development flow log](#development-flow-log-1)
 This section will keep track of the entire development process, how I engaged in the project and what steps I took in order to give a full detailed insight in my development process.
 
 in **project initialisation** are just the simple steps taking on initialising the project requirements for development like: `GitHub`, `JIRA` etc. Just out of the need of being extremely verbose, I decided to incorporate these steps. 
 
 in **JIRA Project issues** are all my `kanban` tasks from my personal JIRA account. Because I am  used working  this way for a couple of years, I keep this habit also for my personal projects because I like to be able to see what I did, what I need to do and what my overal process was in all my development projects to date. Also it keeps me sharp and focussed when working in development teams. 
+This section will keep track of the entire development process, how I engaged in the project and what steps I took in order to give a full detailed insight in my development process.
 
-### Used resources
+### [Used resources](#used-resources-1)
 
 In here you will be able to find all documentation links, repositories etcetera that I have used during this challenge. This is more or less for myself, but also for the ones that need to review my challenge, as they can exactly see how I engaged and what sources I've used to tackle this assignment.
 
-### Developer side notes
+### [Developer side notes](#developer-side-notes-1)
 
 Just some notes about myself and how I see the future, this is just a bonus and a minor reflection of my enthusiasm engaging this challenge and my prospect for the company I am applying to. 
 
 ---
-# <a name="usage-guide"></a> Usage guide
+# Usage guide
 
-<div class="info">
-    TODO: Add steps to take in order to run this project. 
-</div>
+> TODO: Add steps to take in order to run this project. 
 
-<div class="info">
-TODO: Update this section of the README.md accordingly during the development process
-</div>
+> TODO: Update this section of the README.md accordingly during the development process
 
 ---
-<a name="development-flow-log"></a>
 # Development flow log
 
 ### 1. Project Initialisation
@@ -57,7 +53,7 @@ TODO: Update this section of the README.md accordingly during the development pr
 - `BAXRMC-4` Create Rick and Morty API service for the Service container
     - Because a service would suit this assignment perfectly due to `method injection`
 
-# <a name="resources"></a>Used resources
+# Used resources
 
 Here are the resources used to develop this code challenge application for the `Bax Music Rick and Morty Code Challenge`
 
