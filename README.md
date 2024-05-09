@@ -64,6 +64,19 @@ Just some notes about myself and how I see the future, this is just a bonus and 
     ```bash
         $ cd ../ && rm -rf symfony-docker
     ```
+
+    ```bash
+        $ composer config --json extra.symfony.docker 'true'
+    ```
+
+    ```bash
+        $ rm symfony.lock
+        $ composer recipes:install --force --verbose
+    ```
+
+    ```bash
+        $ git diff
+    ```
 - `BAXRMC-4` Create Rick and Morty API service for the Service container
     - Because a service would suit this assignment perfectly due to `method injection`
 
