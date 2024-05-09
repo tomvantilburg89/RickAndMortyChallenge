@@ -10,35 +10,11 @@ The bax-music Rick and Morty (backend) code challenge, add explanation here once
     $ wget https://get.symfony.com/cli/installer -O - | bash
     ```
 2. Create git repository on new account
-3. Create new symfony project 
-4. Setup JIRA Project for Bax Rick and Morty Challenge
+3. Setup JIRA Project for Bax Rick and Morty Challenge
     - JIRA issue key: `BAXRMC`
+4. Create new symfony project 
 5. Setup Symfony docker skeleton, see [**`used resources`**](#resources)
 
-# Development steps taken
-
-1. Install symfony CLI in local `WSL2` environment
-    ```bash
-    $ wget https://get.symfony.com/cli/installer -O - | bash
-    ```
-2. Create git repository on new account
-3. Create new symfony project 
-4. Setup JIRA Project for Bax Rick and Morty Challenge
-    - JIRA issue key: `BAXRMC`
-5. Setup Symfony docker skeleton, see [**`used resources`**](#resources)
-
-# Development steps taken
-
-1. Install symfony CLI in local `WSL2` environment
-    ```bash
-    $ wget https://get.symfony.com/cli/installer -O - | bash
-    ```
-2. Create git repository on new account
-3. Create new symfony project 
-4. Setup JIRA Project for Bax Rick and Morty Challenge
-    - JIRA issue key: `BAXRMC`
-5. Setup Symfony docker skeleton, see [**`used resources`**](#resources)
----
 # <a name="resources"></a>Used resources
 
 Here are the resources used to develop this code challenge application for the `Bax Music Rick and Morty Code Challenge`
