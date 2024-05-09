@@ -3,6 +3,18 @@ The bax-music Rick and Morty (backend) code challenge, add explanation here once
 
 ---
 
+# Usage guide
+
+<div class="info">
+    TODO: Add steps to take in order to run this project. 
+</div>
+
+<div class="info">
+TODO: Update this section of the README.md accordingly during the development process
+</div>
+
+---
+
 # Development steps taken
 
 1. Install symfony CLI in local `WSL2` environment
