@@ -2,6 +2,23 @@
 The bax-music Rick and Morty (backend) code challenge, add explanation here once the challenge arrives. 
 
 ---
+# Challenge development introduction
+
+### Usage guide
+This section will explain in full detail how to run the project and how to use the project
+
+### Development flow log
+This section will keep track of the entire development process, how I engaged in the project and what steps I took in order to give a full detailed insight in my development process.
+
+in **project initialisation** are just the simple steps taking on initialising the project requirements for development like: `GitHub`, `JIRA` etc. Just out of the need of being extremely verbose, I decided to incorporate these steps. 
+
+in **JIRA Project issues** are all my `kanban` tasks from my personal JIRA account. Because I am  used working  this way for a couple of years, I keep this habit also for my personal projects because I like to be able to see what I did, what I need to do and what my overal process was in all my development projects to date. Also it keeps me sharp and focussed when working in development teams. 
+
+### Used resources
+
+In here you will be able to find all documentation links, repositories etcetera that I have used during this challenge. This is more or less for myself, but also for the ones that need to review my challenge, as they can exactly see how I engaged and what sources I've used to tackle this assignment.
+
+---
 
 # Usage guide
 
@@ -15,17 +32,25 @@ TODO: Update this section of the README.md accordingly during the development pr
 
 ---
 
-# Development steps taken
+# Development flow log
 
-1. Install symfony CLI in local `WSL2` environment
+### 1. Project Initialisation
+
+1. Create git repository on new account
+2. Install symfony CLI in local `WSL2` environment
     ```bash
     $ wget https://get.symfony.com/cli/installer -O - | bash
     ```
-2. Create git repository on new account
 3. Setup JIRA Project for Bax Rick and Morty Challenge
     - JIRA issue key: `BAXRMC`
-4. Create new symfony project 
-5. Setup Symfony docker skeleton, see [**`used resources`**](#resources)
+
+### 2. JIRA Project issues
+
+- `BAXRMC-1` Create new symfony project 
+- `BAXRMC-2` Update `README.md` and `.gitignore`
+- `BAXRMC-3` Setup Symfony docker skeleton, see [**`used resources`**](#resources)
+    - `git clone git@github.com:dunglas/symfony-docker.git` into project dir
+    - 
 
 # <a name="resources"></a>Used resources
 
