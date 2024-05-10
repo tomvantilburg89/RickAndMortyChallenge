@@ -6,7 +6,7 @@ use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Contracts\HttpClient\ResponseInterface;
 
-class RickAndMortyAPIService
+class RickAndMortyApiService
 {
     protected string $request;
     protected string $apiUri = 'https://rickandmortyapi.com/api';
@@ -22,9 +22,9 @@ class RickAndMortyAPIService
     /**
      * @param string $name
      * @param int|null $id
-     * @return RickAndMortyAPIService
+     * @return RickAndMortyApiService
      */
-    protected function request(string $name, int $id = null): RickAndMortyAPIService
+    protected function request(string $name, int $id = null): RickAndMortyApiService
     {
         $this->request = is_null($id) ? "$this->apiUri/$name" : "$this->apiUri/$name/$id";
         return $this;
@@ -40,31 +40,31 @@ class RickAndMortyAPIService
     }
 
     /**
-     * @param string|null $id
+     * @param int|null $id
      * @return ResponseInterface
      * @throws TransportExceptionInterface
      */
-    public function getCharacter(string $id = null): ResponseInterface
+    public function getCharacter(int $id = null): ResponseInterface
     {
         return $this->request('character', $id)->get();
     }
 
     /**
-     * @param string|null $id
+     * @param int|null $id
      * @return ResponseInterface
      * @throws TransportExceptionInterface
      */
-    public function getLocation(string $id = null): ResponseInterface
+    public function getLocation(int $id = null): ResponseInterface
     {
         return $this->request('location', $id)->get();
     }
 
     /**
-     * @param string|null $id
+     * @param int|null $id
      * @return ResponseInterface
      * @throws TransportExceptionInterface
      */
-    public function getEpisode(string $id = null): ResponseInterface
+    public function getEpisode(int $id = null): ResponseInterface
     {
         return $this->request('episode', $id)->get();
     }
