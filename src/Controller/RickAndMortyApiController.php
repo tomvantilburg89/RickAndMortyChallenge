@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Service\ApiService;
+use App\Service\RickAndMortyApiService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,7 +15,7 @@ class RickAndMortyApiController extends AbstractController
 {
     #[Route('/{name}/{id?}')]
     public function index(
-        ApiService $api,
+        RickAndMortyApiService $api,
         string $name,
         int $id = null
     ): Response {
