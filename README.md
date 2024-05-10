@@ -82,6 +82,7 @@ Just some notes about myself and how I see the future, this is just a bonus and 
     ```
 
 - `BAXRMC-7` Create Rick and Morty API service for the Service container
+- `BAXRMC-8` Create a controller to test API Service, test in postman
 
 Prospect ISSUES
 
