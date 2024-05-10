@@ -99,6 +99,7 @@ engaging this challenge and my prospect for the company I am applying to.
 - `BAXRMC-7` Create Rick and Morty API service for the Service container
 - `BAXRMC-8` Create a controller to test API Service, test in postman
 - `BAXRMC-9` Include Nick Been's RickAndMorty PHP Client and add it to the service
+  - Decided here to scrap making my own API library, because I do not like reinventing the wheel
 - `BAXRMC-10` Add CharacterService
 - `BAXRMC-11` Add LocationService
 - `BAXRMC-12` Add EpisodeService
