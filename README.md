@@ -29,11 +29,11 @@ Just some notes about myself and how I see the future, this is just a bonus and 
 ### Installing and running the program
 
 ```bash
-    git clone 
+    git clone git@github.com:tomvantilburg89/RickAndMortyChallenge.git
 ```
 
 ```bash
-    docker compose build --no-cache --pull && docker up -d
+    docker compose build --no-cache --pull && docker compose up -d
 ```
 
 ---
