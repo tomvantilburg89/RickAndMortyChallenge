@@ -6,7 +6,7 @@ use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Contracts\HttpClient\ResponseInterface;
 
-class RickAndMortyAPIService
+class RickAndMortyApiService
 {
     protected string $request;
     protected string $apiUri = 'https://rickandmortyapi.com/api';
@@ -22,9 +22,9 @@ class RickAndMortyAPIService
     /**
      * @param string $name
      * @param int|null $id
-     * @return RickAndMortyAPIService
+     * @return RickAndMortyApiService
      */
-    protected function request(string $name, int $id = null): RickAndMortyAPIService
+    protected function request(string $name, int $id = null): RickAndMortyApiService
     {
         $this->request = is_null($id) ? "$this->apiUri/$name" : "$this->apiUri/$name/$id";
         return $this;
