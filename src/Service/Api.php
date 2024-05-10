@@ -2,9 +2,9 @@
 
 namespace App\Service;
 
-use NickBeen\RickAndMortyPhpApi\Api as RickAndMortyApi;
+use NickBeen\RickAndMortyPhpApi\Api as RickAndMortyApis;
 
-class Api extends RickAndMortyApi
+class Api extends RickAndMortyApis
 {
 
 }

@@ -2,9 +2,9 @@
 
 namespace App\Service;
 
-use NickBeen\RickAndMortyPhpApi\Character as RickAndMortyCharacter;
+use NickBeen\RickAndMortyPhpApi\Character as RickAndMortyCharacters;
 
-class Character extends RickAndMortyCharacter
+class Character extends RickAndMortyCharacters
 {
 
 }
