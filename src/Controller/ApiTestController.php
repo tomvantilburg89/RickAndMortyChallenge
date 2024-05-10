@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-class RickAndMortyApiController extends AbstractController
+class ApiTestController extends AbstractController
 {
     #[Route('/test')]
     public function api(
