@@ -34,8 +34,12 @@ class RickAndMortyApiController extends AbstractController
                 ->get(),
 
             $character
-                ->page(2)
-                ->get()
+                ->page(3)
+                ->get(),
+            $character
+                ->page(4)
+                ->get(),
+
         );
     }
 }
