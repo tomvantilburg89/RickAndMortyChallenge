@@ -6,6 +6,7 @@ namespace App\Controller;
 
 use App\Service\Api;
 use App\Service\Character;
+use App\Service\Episode;
 use App\Service\Location;
 use NickBeen\RickAndMortyPhpApi\Enums\Gender;
 use NickBeen\RickAndMortyPhpApi\Enums\Status;
@@ -23,10 +24,10 @@ class ApiTestController extends AbstractController
         dd($api->get());
     }
 
-    #[Route('/test/character/{page?}')]
+    #[Route('/test/characters/{page?}')]
     public function character(
         Character $character,
-        int $page
+        ?int $page
     ) {
         dd(
             $character
@@ -36,33 +37,25 @@ class ApiTestController extends AbstractController
                 ->get(),
 
             $character
-                ->page(2)
-                ->get(),
-            $character->page(3)
-                ->get(),
-            $character
-                ->page(4)
+                ->page($page)
                 ->get(),
         );
     }
 
-    #[Route('/test/location/{page?}')]
+    #[Route('/test/locations/{page?}')]
     public function location(
         Location $location,
-        int $page,
+        ?int $page,
     ) {
         dd(
             $location->get(),
-            $location->page($page)->get(),
-            $location
-                ->withDimension('Dimension C-137')
-                ->get(),
+            $location->page($page)->get()
 
         );
     }
 
 
-    #[Route('/location/dimension/{dimension}')]
+    #[Route('/test/locations/dimensions/{dimension}/{page?}')]
     public function dimension(
         Location $location,
         string $dimension
@@ -75,5 +68,15 @@ class ApiTestController extends AbstractController
         );
     }
 
+    #[Route('test/episodes/{page?}')]
+    public function episodes(
+        Episode $episode,
+        ?int $page
+    ) {
+        dd(
+            $episode->get(),
+            $episode->page($page)->get()
+        );
+    }
 
 }
