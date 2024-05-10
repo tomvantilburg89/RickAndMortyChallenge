@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use App\Service\ApiService;
-use App\Service\RickAndMortyApiService;
+use App\Service\Api;
+use App\Service\Character;
+use NickBeen\RickAndMortyPhpApi\Enums\Gender;
+use NickBeen\RickAndMortyPhpApi\Enums\Status;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,14 +15,27 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class RickAndMortyApiController extends AbstractController
 {
-    #[Route('/{name}/{id?}')]
-    public function index(
-        RickAndMortyApiService $api,
-        string $name,
-        int $id = null
+    #[Route('/api')]
+    public function api(
+        Api $api
     ): Response {
         dd($api->get());
-//        dd($api->get() ?? []);
-//        return $this->render('rick_and_morty_api/index.html.twig');
+    }
+
+    #[Route('/api/character')]
+    public function character(
+        Character $character
+    ) {
+        dd(
+            $character
+                ->withGender(Gender::Male)
+                ->withName('Rick')
+                ->withStatus(Status::Alive)
+                ->get(),
+
+            $character
+                ->page(2)
+                ->get()
+        );
     }
 }
