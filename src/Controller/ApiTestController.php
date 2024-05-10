@@ -50,7 +50,6 @@ class ApiTestController extends AbstractController
         dd(
             $location->get(),
             $location->page($page)->get()
-
         );
     }
 
@@ -63,8 +62,7 @@ class ApiTestController extends AbstractController
         dd(
             $location
                 ->withDimension("Dimension $dimension")
-                ->get(),
-
+                ->get()
         );
     }
 

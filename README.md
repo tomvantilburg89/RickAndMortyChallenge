@@ -66,6 +66,8 @@ engaging this challenge and my prospect for the company I am applying to.
 
 ### 2. JIRA Project issues
 
+<i>Note: tasks used in JIRA have been executed in the order displayed below</i>
+
 - `BAXRMC-1` Create new symfony project
 - `BAXRMC-2` Update `README.md` and `.gitignore`
 - `BAXRMC-3` Setup Symfony docker skeleton
@@ -99,20 +101,15 @@ engaging this challenge and my prospect for the company I am applying to.
 - `BAXRMC-7` Create Rick and Morty API service for the Service container
 - `BAXRMC-8` Create a controller to test API Service, test in postman
 - `BAXRMC-9` Include Nick Been's RickAndMorty PHP Client and add it to the service
-  - Decided here to scrap making my own API library, because I do not like reinventing the wheel
+    - Decided here to scrap making my own API library, because I do not like reinventing the wheel
 - `BAXRMC-10` Add CharacterService
 - `BAXRMC-11` Add LocationService
 - `BAXRMC-12` Add EpisodeService
-
-Prospect ISSUES
-
-- Create search
-- Create pages/routes/retrieval controller
-- Create views
-- Create user controller
-- Create simple login
-- Create functionality to store favorited items to database
-- Create add to favorites controller
+- `BAXRMC-17` Install tailwind, webpack and make base layout
+    - Install webpack encore
+    - Install tailwind
+    - Added homepage controller and view
+    - Update base.html.twig to incorporate tailwindcss (using my personal tailwindui for easy components)
 
 ---
 
@@ -128,6 +125,9 @@ Here are the resources used to develop this code challenge application for the `
 - [The Rick and Morty API](https://rickandmortyapi.com/)
 - [Libraries | PHP Client](https://rickandmortyapi.com/documentation/#php)
 - [Nick Been - Rick and Morty API Library PHP Client](https://github.com/nickbeen/rick-and-morty-api-php)
+- [TailwindUI](https://tailwindui.com/documentation)
+- [Setting up Tailwind CSS in a Symfony project](https://tailwindcss.com/docs/guides/symfony)
+- [Front-end Tools: Handling CSS & Javascript](https://symfony.com/doc/current/frontend.html)
 
 ---
 
