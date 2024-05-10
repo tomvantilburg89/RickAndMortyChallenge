@@ -40,31 +40,31 @@ class RickAndMortyApiService
     }
 
     /**
-     * @param string|null $id
+     * @param int|null $id
      * @return ResponseInterface
      * @throws TransportExceptionInterface
      */
-    public function getCharacter(string $id = null): ResponseInterface
+    public function getCharacter(int $id = null): ResponseInterface
     {
         return $this->request('character', $id)->get();
     }
 
     /**
-     * @param string|null $id
+     * @param int|null $id
      * @return ResponseInterface
      * @throws TransportExceptionInterface
      */
-    public function getLocation(string $id = null): ResponseInterface
+    public function getLocation(int $id = null): ResponseInterface
     {
         return $this->request('location', $id)->get();
     }
 
     /**
-     * @param string|null $id
+     * @param int|null $id
      * @return ResponseInterface
      * @throws TransportExceptionInterface
      */
-    public function getEpisode(string $id = null): ResponseInterface
+    public function getEpisode(int $id = null): ResponseInterface
     {
         return $this->request('episode', $id)->get();
     }

@@ -16,7 +16,7 @@ class RickAndMortyApiController extends AbstractController
         RickAndMortyApiService $api
     ): Response
     {
-        dd($api->getCharacter()->getContent());
+        dd($api->getCharacter(11289371) ?? []);
 //        return $this->render('rick_and_morty_api/index.html.twig');
     }
 }
