@@ -4,19 +4,22 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use App\Service\RickAndMortyApiService;
+use App\Service\ApiService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
 class RickAndMortyApiController extends AbstractController
 {
-    #[Route('/rick-and-morty-api')]
+    #[Route('/{name}/{id?}')]
     public function index(
-        RickAndMortyApiService $api
-    ): Response
-    {
-        dd($api->getCharacter(11289371) ?? []);
+        ApiService $api,
+        string $name,
+        int $id = null
+    ): Response {
+        dd($api->get());
+//        dd($api->get() ?? []);
 //        return $this->render('rick_and_morty_api/index.html.twig');
     }
 }
