@@ -2,6 +2,8 @@
 
 namespace App\Traits;
 
+use App\RickAndMorty\ApiClient;
+
 trait HasPagination
 {
     /**
@@ -40,40 +42,43 @@ trait HasPagination
      */
     public function page(?int $page)
     {
-        $this->setQuery('page', $page ?? 1);
-        $this->setData($this->get());
+        // Set page to query parameters
+        $this->query('page', $page ?? 1);
 
+        return $this->results();
+    }
+
+    public function getQuery(string $key)
+    {
+        return $this->query[$key];
+    }
+
+    public function results(): object|array
+    {
         if (isset($this->data->error)) {
             return $this->data;
         }
-        $this->setPagination($pageId ?? 1);
 
-        return $this->data->results;
-    }
+        if ($this->getInfo('pages') > 1) {
+            $this->setPagination();
+        }
 
-    /**
-     * Set the data returned from the API.
-     *
-     * @param array|object $data The data returned from the API.
-     * @return void
-     */
-    private function setData(array|object $data): void
-    {
-        $this->data = $data;
+        return $this->getInfo('count') > 1 ? $this->data->results : $this->data->results[0];
     }
 
     /**
      * Set the pagination values.
      *
-     * @param int $page The current page number.
-     * @return void
+     * @return ApiClient
      */
-    private function setPagination(int $page): void
+    private function setPagination(): ApiClient
     {
-        $total = $this->data->info->pages;
-        $this->total = $total;
+        $page = $this->getQuery('page');
+        $this->total = $this->getInfo('pages');
         $this->next = $page + 1 <= $this->total ? $page + 1 : null;
         $this->prev = $page - 1 >= 1 ? $page - 1 : null;
+
+        return $this;
     }
 
     /**

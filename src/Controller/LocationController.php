@@ -4,10 +4,13 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Service\Character;
 use App\Service\Location;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\String\Slugger\AsciiSlugger;
 
 class LocationController extends AbstractController
 {
@@ -34,8 +37,7 @@ class LocationController extends AbstractController
 
         // If location page returns error we just want to redirect to the locations main page
         if ($locations->error ?? null) {
-            $this->addFlash('error', $locations->error);
-            return $this->redirectToRoute('all_locations', ['page' => 1]);
+            return $this->redirectToRoute('route_404', ['title' => "Page: /location/$page does not exist"]);
         }
 
         return $this->render('locations/index.html.twig', [
@@ -48,19 +50,34 @@ class LocationController extends AbstractController
     /**
      * Renders the location page.
      *
-     * @param string $location The location
+     * @param Character $character The character service
+     * @param string $name The location name
      * @return Response The response object
      */
-    #[Route('/location/{location}')]
-    public function location(string $location): Response
+    #[Route('/location/{name}')]
+    public function location(Character $character, string $name): Response
     {
+        $location = $this->location->name($name);
+
+        if ($this->location->hasError()) {
+            return $this->redirectToRoute('route_404', [
+                'name' => strtolower((new AsciiSlugger('en'))->slug($name)->toString())
+            ]);
+        }
+
+        // Get all residents inside current location
+        $residents = $character->get(...$this->location->residents());
+
         return $this->render('locations/show.html.twig', [
-            'data' => $this->location->get()
+            'title' => $name,
+            'location' => $location,
+            'residents' => $residents
         ]);
     }
 
     /**
      * Renders the dimension page.
+     * TODO: move to dimension controller
      *
      * @param string|null $dimension The dimension
      */

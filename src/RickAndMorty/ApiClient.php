@@ -5,12 +5,14 @@ namespace App\RickAndMorty;
 use App\Traits\HasPagination;
 use Doctrine\DBAL\Exception\ServerException;
 use ReflectionClass;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 /**
  * Class ApiClient
- * 
+ *
  * This class is responsible for making API requests to the Rick and Morty API.
  */
 class ApiClient
@@ -18,9 +20,13 @@ class ApiClient
     use HasPagination;
 
     private string $class;
+    private string $serviceName;
     private ?string $resource;
 
     private array $query = [];
+
+    private string $queryKey = '';
+    private string $queryValue = '';
 
     /**
      * ApiClient constructor.
@@ -31,6 +37,7 @@ class ApiClient
         protected readonly HttpClientInterface $http,
     ) {
         $reflectionClass = new ReflectionClass(get_called_class());
+        $this->serviceName = $reflectionClass->getShortName();
         $this->class = $reflectionClass->getName();
         $this->resource = $this->class::URI;
     }
@@ -40,7 +47,7 @@ class ApiClient
      *
      * @param int|null ...$id The ID(s) to be included in the resource URL.
      */
-    public function updateResource(?int ...$id): void
+    public function setResource(?int ...$id): void
     {
         if (!$id) {
             $this->query = [];
@@ -52,35 +59,54 @@ class ApiClient
     /**
      * Set a query parameter for the API request.
      *
-     * @param string     $key   The query parameter key.
+     * @param string $key The query parameter key.
      * @param string|int $value The query parameter value.
      */
-    public function setQuery(string $key, string|int $value)
+    public function query(string $key, string|int $value): void
     {
+        $this->queryValue = $value;
         $this->query[$key] = $value;
+        $this->setData();
+    }
+
+    public function hasError(): bool
+    {
+        if ($this->data->error ?? null) {
+            $session = new Session();
+            $title = $this->queryValue;
+            $message = "$this->serviceName: $title does not exist";
+            $session->set('404_title', $title);
+            $session->set('404_message', $message);
+            return true;
+        }
+        return false;
+    }
+
+    public function getData(): object|array
+    {
+        return $this->data;
+    }
+
+    /**
+     * Set the data returned from the API.
+     *
+     * @return void
+     */
+    protected function setData(): void
+    {
+        $this->data = $this->get();
     }
 
     /**
      * Search for characters by name.
      *
      * @param string $name The name of the character.
-     * @return object The API response.
+     * @return object|array
      */
-    public function name(string $name)
+    public function name(string $name): object|array
     {
-        $this->setQuery('name', $name);
-        return $this->get();
-    }
-
-    /**
-     * Search for characters by dimension.
-     *
-     * @param string $dimension The dimension of the character.
-     * @return object The API response.
-     */
-    public function dimension(string $dimension)
-    {
-        return $this->setQuery('dimension', $dimension);
+        $this->query('name', $name);
+        return $this->results();
     }
 
     /**
@@ -96,6 +122,11 @@ class ApiClient
         return $this->get();
     }
 
+    public function getInfo(?string $attribute)
+    {
+        return $attribute ?? null ? $this->data->info->{$attribute} : $this->data;
+    }
+
     /**
      * Make a GET request to the API.
      *
@@ -105,7 +136,7 @@ class ApiClient
     public function get(?int ...$id)
     {
         if ($id) {
-            $this->updateResource(...$id);
+            $this->setResource(...$id);
         }
 
         return json_decode(

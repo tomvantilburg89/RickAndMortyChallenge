@@ -4,13 +4,24 @@ namespace App\Service;
 
 use App\RickAndMorty\ApiClient;
 use App\RickAndMorty\Interfaces\LocationInterface;
+use Symfony\Component\String\UnicodeString;
 
 /**
  * Class Location
- * 
+ *
  * This class represents a service for interacting with the Location resource in the Rick and Morty API.
  * It extends the ApiClient class and implements the LocationInterface.
  */
 class Location extends ApiClient implements LocationInterface
 {
+    public function residents(): array
+    {
+        $characterIds = [];
+        foreach ($this->results()->residents as $resident) {
+            $string = new UnicodeString($resident);
+            $characterIds[] = (int)$string->afterLast('/')->toString();
+        }
+
+        return $characterIds;
+    }
 }
