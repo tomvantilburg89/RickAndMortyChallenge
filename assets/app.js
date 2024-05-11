@@ -6,5 +6,8 @@ import './bootstrap.js';
  * (and its CSS file) in your base layout (base.html.twig).
  */
 
+import Alpine from 'alpinejs';
+window.Alpine = Alpine;
+Alpine.start()
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.css';

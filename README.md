@@ -111,6 +111,9 @@ engaging this challenge and my prospect for the company I am applying to.
     - updated tailwind
     - Added PageController and view
     - Create base layout using TailwindCSS
+    - added stacked layout to base and split navigation to parts/navigation.html.twig
+    - Changed indigo to pink to match bax music color theme slightly
+    - Added AlpineJS in order to prepare to use AlpineJS in a later stage
 
 ---
 
@@ -132,7 +135,7 @@ Here are the resources used to develop this code challenge application for the `
 - [Install Tailwind CSS with Symfony](https://tailwindcss.com/docs/guides/symfony)
 - [TailwindUI](https://tailwindui.com)
   - Using my own login to make use of tailwindUI components, knew it would come in handy someday
-
+- [Alpine.JS](https://alpinejs.dev/)
 ---
 
 # Used tools
