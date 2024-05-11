@@ -124,9 +124,9 @@ engaging this challenge and my prospect for the company I am applying to.
   - Updated readme.md developer flow log at `BAXRMC-13`
   - Added functionality to retrieve by Dimension in the LocationService
   - Create Dimension Controller, use LocationController as reference.
-    - 
-  - 
-
+  - Show all characters in a given dimension
+- `BAXRMC-15` Show all characters that partake in a given episode
+  - Create Episode Service to accommodate episodes 
 ---
 
 # Used resources

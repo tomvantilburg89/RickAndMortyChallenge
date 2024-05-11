@@ -10,7 +10,7 @@ use Symfony\Component\String\Slugger\AsciiSlugger;
 
 abstract class AbstractApiController extends AbstractController
 {
-    private object|array $controllerData;
+    private array $controllerData;
 
     /**
      * LocationController constructor.
@@ -23,12 +23,12 @@ abstract class AbstractApiController extends AbstractController
     ) {
     }
 
-    public function setControllerData(object|array $data)
+    public function setControllerData(object|array $data): void
     {
         $this->controllerData = $data;
     }
 
-    private function getControllerData()
+    private function getControllerData(): array
     {
         return $this->controllerData;
     }
