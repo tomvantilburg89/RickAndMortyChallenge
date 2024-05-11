@@ -8,6 +8,7 @@ use ReflectionClass;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\String\UnicodeString;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 /**
@@ -27,6 +28,8 @@ class ApiClient
 
     private string $queryKey = '';
     private string $queryValue = '';
+
+    private string $mapHook;
 
     /**
      * ApiClient constructor.
@@ -82,7 +85,7 @@ class ApiClient
         return false;
     }
 
-    public function getData(): object|array
+    public function getData(): array|object
     {
         return $this->data;
     }
@@ -101,9 +104,9 @@ class ApiClient
      * Search by name.
      *
      * @param string $name The name of a character/location.
-     * @return object|array
+     * @return array|object
      */
-    public function name(string $name): object|array
+    public function name(string $name): array|object
     {
         $this->query('name', $name);
         return $this->results();
@@ -120,6 +123,35 @@ class ApiClient
         $this->query = [];
         $this->resource = $string;
         return $this->get();
+    }
+
+    private function setMapHook(string $hook)
+    {
+        $this->mapHook = $hook;
+    }
+
+
+    public function characters(string $hook): array
+    {
+        $results = $this->results();
+        $ids = [];
+        $this->setMapHook($hook);
+        $this->mapCharacters($results, $ids);
+        return $ids;
+    }
+
+    private function mapCharacters($location, &$residents): void
+    {
+        if (is_array($location)) {
+            foreach ($location as $loc) {
+                $this->mapCharacters($loc, $residents);
+            }
+        } else {
+            foreach ($location->{$this->mapHook} as $resident) {
+                $string = new UnicodeString($resident);
+                $residents[] = (int)$string->afterLast('/')->toString();
+            }
+        }
     }
 
     public function getInfo(?string $attribute)

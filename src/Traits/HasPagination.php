@@ -53,7 +53,7 @@ trait HasPagination
         return $this->query[$key];
     }
 
-    public function results(): object|array
+    public function results(): array|object
     {
         if (isset($this->data->error)) {
             return $this->data;

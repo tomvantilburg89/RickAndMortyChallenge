@@ -10,7 +10,7 @@ use Symfony\Component\String\Slugger\AsciiSlugger;
 
 abstract class AbstractApiController extends AbstractController
 {
-    private array $controllerData;
+    private array|object $controllerData;
 
     /**
      * LocationController constructor.
@@ -19,16 +19,16 @@ abstract class AbstractApiController extends AbstractController
      */
     public function __construct(
         protected readonly Location $location,
-        protected readonly Character $character
+        protected readonly Character $charactera
     ) {
     }
 
-    public function setControllerData(object|array $data): void
+    public function setControllerData(array|object $data): void
     {
         $this->controllerData = $data;
     }
 
-    private function getControllerData(): array
+    private function getControllerData(): array|object
     {
         return $this->controllerData;
     }
@@ -42,7 +42,7 @@ abstract class AbstractApiController extends AbstractController
         }
 
         // Get all residents inside current location
-        $residents = $this->character->get(...$this->location->residents());
+        $residents = $this->character->get(...$this->location->characters('residents'));
 
         return $this->render('locations/show.html.twig', [
             'title' => $name,

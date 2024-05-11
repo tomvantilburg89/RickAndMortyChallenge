@@ -128,7 +128,7 @@ engaging this challenge and my prospect for the company I am applying to.
 - `BAXRMC-15` Show all characters that partake in a given episode
   - Create Episode Service to accommodate episodes 
   - Added character controller in order to prepare for later views
-  - 
+  - Updated episodes template files and controller
 ---
 
 # Used resources
