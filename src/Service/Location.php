@@ -2,22 +2,15 @@
 
 namespace App\Service;
 
+use App\Traits\HasPagination;
+use NickBeen\RickAndMortyPhpApi\Exceptions\NotFoundException;
+use ReflectionClass;
 use NickBeen\RickAndMortyPhpApi\Location as RickAndMortyLocation;
+
+use function PHPUnit\Framework\throwException;
 
 class Location extends RickAndMortyLocation
 {
-    public function all()
-    {
-
-    }
-
-    public function dimension(?string $dimension)
-    {
-        if ($dimension != null) {
-            return $this->withDimension($dimension)->get();
-        } else {
-            return $this->get();
-        }
-    }
+    use HasPagination;
 }
 

@@ -101,7 +101,7 @@ engaging this challenge and my prospect for the company I am applying to.
 - `BAXRMC-7` Create Rick and Morty API service for the Service container
 - `BAXRMC-8` Create a controller to test API Service, test in postman
 - `BAXRMC-9` Include Nick Been's RickAndMorty PHP Client and add it to the service
-    - Decided here to scrap making my own API library, because I do not like reinventing the wheel
+    - Scrapped making API client after finding nick been's php client in the documentation
 - `BAXRMC-10` Add CharacterService
 - `BAXRMC-11` Add LocationService
 - `BAXRMC-12` Add EpisodeService
@@ -115,7 +115,7 @@ engaging this challenge and my prospect for the company I am applying to.
     - Added AlpineJS in order to prepare to use AlpineJS in a later stage
     - Removed and commented out unnecessary tailwindui defaults
 - `BAXRMC-13` Show all characters that exist (or are last seen) in a given dimension
-  - Add Dimensions to PageController
+  - Added LocationController and locations/index.html.twig
 ---
 
 # Used resources

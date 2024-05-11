@@ -16,12 +16,17 @@ class LocationController extends AbstractController
     ) {
     }
 
-    #[Route('/locations')]
-    public function index(): Response
-    {
+    #[Route('/locations/{page?}')]
+    public function index(
+        ?int $page
+    ): Response {
+
+        $locations = $this->location->getPage($page);
+
         return $this->render('locations/index.html.twig', [
             'title' => 'Locations',
-            'data' => $this->location->get()
+            'locations' => $locations,
+            'pagination' => $this->location->getPagination()
         ]);
     }
 
