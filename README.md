@@ -130,6 +130,7 @@ engaging this challenge and my prospect for the company I am applying to.
   - Added character controller in order to prepare for later views
   - Updated episodes template files and controller
   - Refactored residents and character map to incorporate hook
+  - commit Added character loop to character.show template
 ---
 
 # Used resources
