@@ -14,7 +14,8 @@ use Symfony\Component\String\Slugger\AsciiSlugger;
 class EpisodeController extends AbstractController
 {
     public function __construct(
-        private readonly Episode $episode
+        private readonly Episode $episode,
+        private readonly Character $character
     ) {
     }
 
@@ -56,10 +57,17 @@ class EpisodeController extends AbstractController
                 'name' => strtolower((new AsciiSlugger('en'))->slug($episode->name)->toString())
             ]);
         }
+        
+        // Get all character Ids
+        $characterIds = $this->episode->characters($episode, 'characters');
+        // Get all residents inside current location
+        $characters = $this->character->get(...$characterIds);
+
 
         return $this->render('episodes/show.html.twig', [
             'title' => $episode->name,
             'episode' => $episode,
+            'characters' => $characters
         ]);
     }
 }

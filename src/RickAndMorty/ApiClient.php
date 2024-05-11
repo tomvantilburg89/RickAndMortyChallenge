@@ -67,6 +67,7 @@ class ApiClient
      */
     public function query(string $key, string|int $value): void
     {
+        $this->query = [];
         $this->queryValue = $value;
         $this->query[$key] = $value;
         $this->setData();
@@ -125,31 +126,23 @@ class ApiClient
         return $this->get();
     }
 
-    private function setMapHook(string $hook)
+    public function characters(object|array $data, string $hook = 'residents'): array
     {
-        $this->mapHook = $hook;
-    }
-
-
-    public function characters(string $hook): array
-    {
-        $results = $this->results();
         $ids = [];
-        $this->setMapHook($hook);
-        $this->mapCharacters($results, $ids);
+        $this->mapCharacters($data, $ids, $hook);
         return $ids;
     }
 
-    private function mapCharacters($location, &$residents): void
+    protected function mapCharacters($array, &$ids, $hook = 'residents'): void
     {
-        if (is_array($location)) {
-            foreach ($location as $loc) {
-                $this->mapCharacters($loc, $residents);
+        if (is_array($array)) {
+            foreach ($array as $arr) {
+                $this->mapCharacters($arr, $ids);
             }
         } else {
-            foreach ($location->{$this->mapHook} as $resident) {
+            foreach ($array->{$hook} as $resident) {
                 $string = new UnicodeString($resident);
-                $residents[] = (int)$string->afterLast('/')->toString();
+                $ids[] = (int)$string->afterLast('/')->toString();
             }
         }
     }

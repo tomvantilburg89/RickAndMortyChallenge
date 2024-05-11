@@ -14,6 +14,7 @@ use Symfony\Component\String\UnicodeString;
  */
 class Location extends ApiClient implements LocationInterface
 {
+
     /**
      * Search for locations by dimension name
      *

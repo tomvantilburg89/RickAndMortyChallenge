@@ -129,6 +129,7 @@ engaging this challenge and my prospect for the company I am applying to.
   - Create Episode Service to accommodate episodes 
   - Added character controller in order to prepare for later views
   - Updated episodes template files and controller
+  - Refactored residents and character map to incorporate hook
 ---
 
 # Used resources

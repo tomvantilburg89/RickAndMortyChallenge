@@ -4,6 +4,7 @@ namespace App\Service;
 
 use App\RickAndMorty\ApiClient;
 use App\RickAndMorty\Interfaces\EpisodeInterface;
+use Symfony\Component\String\UnicodeString;
 
 /**
  * Class Location
@@ -13,5 +14,4 @@ use App\RickAndMorty\Interfaces\EpisodeInterface;
  */
 class Episode extends ApiClient implements EpisodeInterface
 {
-
 }

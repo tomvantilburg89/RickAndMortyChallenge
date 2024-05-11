@@ -19,7 +19,7 @@ abstract class AbstractApiController extends AbstractController
      */
     public function __construct(
         protected readonly Location $location,
-        protected readonly Character $charactera
+        protected readonly Character $character
     ) {
     }
 
@@ -41,13 +41,16 @@ abstract class AbstractApiController extends AbstractController
             ]);
         }
 
+        // get all resident Ids
+        $residentIds = $this->location->characters($this->controllerData);
+
         // Get all residents inside current location
-        $residents = $this->character->get(...$this->location->characters('residents'));
+        $residents = $this->character->get(...$residentIds);
 
         return $this->render('locations/show.html.twig', [
             'title' => $name,
             'location' => $this->getControllerData(),
-            'residents' => $residents
+            'characters' => $residents
         ]);
     }
 }
