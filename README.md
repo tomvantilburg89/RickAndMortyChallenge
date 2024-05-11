@@ -128,7 +128,8 @@ Here are the resources used to develop this code challenge application for the `
 - [Setting up Tailwind CSS in a Symfony project](https://tailwindcss.com/docs/guides/symfony)
 - [Front-end Tools: Handling CSS & Javascript](https://symfony.com/doc/current/frontend.html)
 - [Encore: setting up your project](https://symfony.com/doc/current/frontend/encore/simple-example.html)
-- [TailwindUI](https://tailwindui.com/documentation)
+- [Install Tailwind CSS with Symfony](https://tailwindcss.com/docs/guides/symfony)
+- [TailwindUI](https://tailwindui.com)
   - Using my own login to make use of tailwindUI components, knew it would come in handy someday
 
 ---
