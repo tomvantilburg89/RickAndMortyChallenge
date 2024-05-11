@@ -117,7 +117,11 @@ engaging this challenge and my prospect for the company I am applying to.
     - Removed Nick Been's PHP Client, it did not suit the scope of the challenge
     - Update Location Service
 - `BAXRMC-13` Show all characters that exist (or are last seen) in a given dimension
-  - 
+  - Finalized ApiClient and added functionality to retrieve location by name and page
+  - Made sure we have pagination feature for retrieving the list of locactions
+  - Added hasError() functionality
+- `BAXRMC-14` Show all characters that exist (or are last seen) in a given dimension
+  - Updated readme.md developer flow log at `BAXRMC-13`
 
 ---
 
