@@ -8,6 +8,10 @@
         <b>{{ loop.index }}</b>{{ e.name }} <br>
         {{ dump(e) }}
     {% endfor %}
+    {% for character in characters %}
+        <b>{{ loop.index }}</b>{{ character.name }} <br>
+    {% endfor %}
+    {{ dump(characters) }}
     {#    {{ dump(pagination) }} #}
     {# TODO: add pagination #}
 {% endblock %}
