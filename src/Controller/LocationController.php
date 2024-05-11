@@ -20,7 +20,6 @@ class LocationController extends AbstractController
     public function index(
         ?int $page
     ): Response {
-
         $locations = $this->location->getPage($page);
 
         return $this->render('locations/index.html.twig', [

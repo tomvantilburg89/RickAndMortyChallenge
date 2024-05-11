@@ -2,8 +2,6 @@
 
 namespace App\Traits;
 
-use GuzzleHttp\Exception\ClientException;
-use NickBeen\RickAndMortyPhpApi\Exceptions\NotFoundException;
 
 trait HasPagination
 {
