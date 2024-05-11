@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+    {# TODO: add search #}
+    {# TODO: add table overview component for character data #}
+    {{ dump(characters) }}
+    {% for character in characters %}
+        {{ character.name }} <br>
+        {{ character.type }} <br>
+{#        {{ dump(character) }}#}
+    {% endfor %}
+    {{ dump(pagination) }}
+    {# TODO: add pagination #}
+{% endblock %}
+    {# TODO: add secondary column #}
