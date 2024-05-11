@@ -117,6 +117,7 @@ engaging this challenge and my prospect for the company I am applying to.
     - Removed Nick Been's PHP Client, it did not suit the scope of the challenge
     - Update Location Service
 - `BAXRMC-13` Show all characters that exist (or are last seen) in a given dimension
+  - 
 
 ---
 

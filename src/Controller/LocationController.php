@@ -65,6 +65,7 @@ class LocationController extends AbstractController
             ]);
         }
 
+        // Get all residents inside current location
         $residents = $character->get(...$this->location->residents());
 
         return $this->render('locations/show.html.twig', [

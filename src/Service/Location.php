@@ -14,7 +14,7 @@ use Symfony\Component\String\UnicodeString;
  */
 class Location extends ApiClient implements LocationInterface
 {
-    public function residents()
+    public function residents(): array
     {
         $characterIds = [];
         foreach ($this->results()->residents as $resident) {
