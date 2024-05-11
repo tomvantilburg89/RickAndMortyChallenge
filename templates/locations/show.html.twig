@@ -4,7 +4,8 @@
     {# TODO: add table overview component for location data #}
     {{ dump(location) }}
     {% for location in residents %}
-        {{ location.name }} <br>
+
+        <b>{{ loop.index }}</b>{{ location.name }} <br>
 {#        {{ dump(location) }}#}
     {% endfor %}
 {#    {{ dump(pagination) }}#}
