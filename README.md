@@ -127,6 +127,8 @@ engaging this challenge and my prospect for the company I am applying to.
   - Show all characters in a given dimension
 - `BAXRMC-15` Show all characters that partake in a given episode
   - Create Episode Service to accommodate episodes 
+  - Added character controller in order to prepare for later views
+  - 
 ---
 
 # Used resources

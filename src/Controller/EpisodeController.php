@@ -5,15 +5,16 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Service\Character;
+use App\Service\Episode;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\String\Slugger\AsciiSlugger;
 
-class CharacterController extends AbstractController
+class EpisodeController extends AbstractController
 {
     public function __construct(
-        private readonly Character $character
+        private readonly Episode $episode
     ) {
     }
 
@@ -23,43 +24,42 @@ class CharacterController extends AbstractController
      * @param int|null $page The page number
      * @return Response The response object
      */
-    #[Route('/characters/{page?}', name: 'all_characters')]
+    #[Route('/episodes/{page?}', name: 'all_episodes')]
     public function index(?int $page): Response
     {
-        $characters = $this->character->page($page);
-
+        $episodes = $this->episode->page($page);
         // If location page returns error we just want to redirect to the locations main page
         if ($locations->error ?? null) {
             return $this->redirectToRoute('route_404', ['title' => "Page: /location/$page does not exist"]);
         }
 
-        return $this->render('characters/index.html.twig', [
-            'title' => 'Characters',
-            'characters' => $characters,
-            'pagination' => $this->character->getPagination()
+        return $this->render('episodes/index.html.twig', [
+            'title' => 'Episodes',
+            'episodes' => $episodes,
+            'pagination' => $this->episode->getPagination()
         ]);
     }
 
     /**
      * Renders the location page.
      *
-     * @param int $id The character id
+     * @param int $id The episode id
      * @return Response The response object
      */
-    #[Route('/character/{id}')]
+    #[Route('/episode/{id}')]
     public function show(int $id): Response
     {
-        $character = $this->character->get($id);
+        $episode = $this->episode->get($id);
 
-        if ($this->character->hasError()) {
+        if ($this->episode->hasError()) {
             return $this->redirectToRoute('route_404', [
-                'name' => strtolower((new AsciiSlugger('en'))->slug($character->name)->toString())
+                'name' => strtolower((new AsciiSlugger('en'))->slug($episode->name)->toString())
             ]);
         }
 
-        return $this->render('characters/show.html.twig', [
-            'title' => $character->name,
-            'character' => $character,
+        return $this->render('episodes/show.html.twig', [
+            'title' => $episode->name,
+            'episode' => $episode,
         ]);
     }
 }
