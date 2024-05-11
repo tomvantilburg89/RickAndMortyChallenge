@@ -113,6 +113,7 @@ engaging this challenge and my prospect for the company I am applying to.
     - added stacked layout to base and split navigation to parts/navigation.html.twig
     - Changed indigo to pink to match bax music color theme slightly
     - Added AlpineJS in order to prepare to use AlpineJS in a later stage
+    - Removed and commented out unnecessary tailwindui defaults
 
 ---
 
