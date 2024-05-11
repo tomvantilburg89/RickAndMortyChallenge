@@ -13,6 +13,6 @@ class PageController extends AbstractController
     #[Route('/')]
     public function index(): Response
     {
-        return $this->render('pages/index.html.twig');
+        return $this->render('pages/home.html.twig');
     }
 }
