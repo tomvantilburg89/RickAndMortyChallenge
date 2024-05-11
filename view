@@ -1,0 +1,3 @@
+[task/BAXRMC-17 e0fbc0c] BAXRMC-17: refactored PageController- to home.html.twig
+ 3 files changed, 4 insertions(+), 3 deletions(-)
+ rename templates/pages/{index.html.twig => home.html.twig} (100%)
