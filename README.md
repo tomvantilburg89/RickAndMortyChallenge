@@ -108,7 +108,6 @@ engaging this challenge and my prospect for the company I am applying to.
 - `BAXRMC-17` Install tailwind, webpack and make base layout
     - Install webpack encore
     - Install tailwind
-    - updated tailwind
     - Added PageController and view
     - Create base layout using TailwindCSS
     - added stacked layout to base and split navigation to parts/navigation.html.twig
