@@ -122,6 +122,8 @@ engaging this challenge and my prospect for the company I am applying to.
   - Added hasError() functionality
 - `BAXRMC-14` Show all characters that exist (or are last seen) in a given dimension
   - Updated readme.md developer flow log at `BAXRMC-13`
+  - Added functionality to retrieve by Dimension in the LocationService
+  - 
 
 ---
 
