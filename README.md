@@ -114,7 +114,8 @@ engaging this challenge and my prospect for the company I am applying to.
     - Changed indigo to pink to match bax music color theme slightly
     - Added AlpineJS in order to prepare to use AlpineJS in a later stage
     - Removed and commented out unnecessary tailwindui defaults
-
+- `BAXRMC-13` Show all characters that exist (or are last seen) in a given dimension
+  - Add Dimensions to PageController
 ---
 
 # Used resources
@@ -135,6 +136,7 @@ Here are the resources used to develop this code challenge application for the `
 - [Install Tailwind CSS with Symfony](https://tailwindcss.com/docs/guides/symfony)
 - [TailwindUI](https://tailwindui.com)
   - Using my own login to make use of tailwindUI components, knew it would come in handy someday
+- [Tailwind using html and your own JS](https://tailwindui.com/documentation#using-html-and-your-own-js)
 - [Alpine.JS](https://alpinejs.dev/)
 ---
 

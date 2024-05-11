@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+    {# TODO: add table overview component for location data #}
+    {% for d in data.results %}
+        {{ dump(d) }}
+    {% endfor %}
+    {# TODO: add pagination #}
+{% endblock %}
