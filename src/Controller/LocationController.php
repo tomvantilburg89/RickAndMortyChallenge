@@ -7,8 +7,10 @@ namespace App\Controller;
 use App\Service\Character;
 use App\Service\Location;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\String\Slugger\AsciiSlugger;
 
 class LocationController extends AbstractController
 {
@@ -57,14 +59,18 @@ class LocationController extends AbstractController
     {
         $location = $this->location->name($name);
 
-        if ($location->error ?? null) {
-            return $this->redirectToRoute('route_404', ['title' => "Location: $name does not exist"]);
+        if ($this->location->hasError()) {
+            return $this->redirectToRoute('route_404', [
+                'name' => strtolower((new AsciiSlugger('en'))->slug($name)->toString())
+            ]);
         }
 
         $residents = $character->get(...$this->location->residents());
 
         return $this->render('locations/show.html.twig', [
-//            'data' => $this->location->get()
+            'title' => $name,
+            'location' => $location,
+            'residents' => $residents
         ]);
     }
 

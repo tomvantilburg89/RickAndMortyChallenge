@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+    {# TODO: add search #}
+    {# TODO: add table overview component for location data #}
+    {{ dump(location) }}
+    {% for location in residents %}
+        {{ location.name }} <br>
+{#        {{ dump(location) }}#}
+    {% endfor %}
+{#    {{ dump(pagination) }}#}
+    {# TODO: add pagination #}
+{% endblock %}
+    {# TODO: add secondary column #}

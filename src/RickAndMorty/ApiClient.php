@@ -5,6 +5,8 @@ namespace App\RickAndMorty;
 use App\Traits\HasPagination;
 use Doctrine\DBAL\Exception\ServerException;
 use ReflectionClass;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
@@ -18,9 +20,13 @@ class ApiClient
     use HasPagination;
 
     private string $class;
+    private string $serviceName;
     private ?string $resource;
 
     private array $query = [];
+
+    private string $queryKey = '';
+    private string $queryValue = '';
 
     /**
      * ApiClient constructor.
@@ -31,6 +37,7 @@ class ApiClient
         protected readonly HttpClientInterface $http,
     ) {
         $reflectionClass = new ReflectionClass(get_called_class());
+        $this->serviceName = $reflectionClass->getShortName();
         $this->class = $reflectionClass->getName();
         $this->resource = $this->class::URI;
     }
@@ -57,11 +64,25 @@ class ApiClient
      */
     public function query(string $key, string|int $value): void
     {
+        $this->queryValue = $value;
         $this->query[$key] = $value;
         $this->setData();
     }
 
-    public function getData()
+    public function hasError(): bool
+    {
+        if ($this->data->error ?? null) {
+            $session = new Session();
+            $title = $this->queryValue;
+            $message = "$this->serviceName: $title does not exist";
+            $session->set('404_title', $title);
+            $session->set('404_message', $message);
+            return true;
+        }
+        return false;
+    }
+
+    public function getData(): object|array
     {
         return $this->data;
     }

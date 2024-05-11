@@ -114,9 +114,10 @@ engaging this challenge and my prospect for the company I am applying to.
     - Added AlpineJS in order to prepare to use AlpineJS in a later stage
     - Removed and commented out unnecessary tailwindui defaults
 - `BAXRMC-25` Create new API Client for Rick and Morty API
-  - Removed Nick Been's PHP Client, it did not suit the scope of the challenge
-  - Update Location Service
+    - Removed Nick Been's PHP Client, it did not suit the scope of the challenge
+    - Update Location Service
 - `BAXRMC-13` Show all characters that exist (or are last seen) in a given dimension
+
 ---
 
 # Used resources
@@ -136,9 +137,12 @@ Here are the resources used to develop this code challenge application for the `
 - [Encore: setting up your project](https://symfony.com/doc/current/frontend/encore/simple-example.html)
 - [Install Tailwind CSS with Symfony](https://tailwindcss.com/docs/guides/symfony)
 - [TailwindUI](https://tailwindui.com)
-  - Using my own login to make use of tailwindUI components, knew it would come in handy someday
+    - Using my own login to make use of tailwindUI components, knew it would come in handy someday
 - [Tailwind using html and your own JS](https://tailwindui.com/documentation#using-html-and-your-own-js)
 - [Alpine.JS](https://alpinejs.dev/)
+- [Symfony - Controller](https://symfony.com/doc/current/controller.html)
+- [Symfony session](https://symfony.com/doc/current/session.html)
+
 ---
 
 # Used tools
