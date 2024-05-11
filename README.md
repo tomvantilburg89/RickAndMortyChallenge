@@ -113,9 +113,9 @@ engaging this challenge and my prospect for the company I am applying to.
     - Changed indigo to pink to match bax music color theme slightly
     - Added AlpineJS in order to prepare to use AlpineJS in a later stage
     - Removed and commented out unnecessary tailwindui defaults
-- `BAXRMC-25` Start over with the API library
-  - Removed Nick Been's PHP Client
-  - Was already busy working on `BAXRMC-13` but removing the client library as it does not suit the challenge
+- `BAXRMC-25` Create new API Client for Rick and Morty API
+  - Removed Nick Been's PHP Client, it did not suit the scope of the challenge
+  - Update Location Service
 - `BAXRMC-13` Show all characters that exist (or are last seen) in a given dimension
 ---
 

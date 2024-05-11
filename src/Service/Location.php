@@ -2,16 +2,15 @@
 
 namespace App\Service;
 
-use App\Traits\HasPagination;
+use App\RickAndMorty\ApiClient;
+use App\RickAndMorty\Interfaces\LocationInterface;
 
-use function PHPUnit\Framework\throwException;
-
-class Location
+/**
+ * Class Location
+ * 
+ * This class represents a service for interacting with the Location resource in the Rick and Morty API.
+ * It extends the ApiClient class and implements the LocationInterface.
+ */
+class Location extends ApiClient implements LocationInterface
 {
-    use HasPagination;
-
-    public function fromDimension()
-    {
-    }
 }
-
