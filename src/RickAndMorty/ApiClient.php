@@ -98,9 +98,9 @@ class ApiClient
     }
 
     /**
-     * Search for characters by name.
+     * Search by name.
      *
-     * @param string $name The name of the character.
+     * @param string $name The name of a character/location.
      * @return object|array
      */
     public function name(string $name): object|array

@@ -14,14 +14,38 @@ use Symfony\Component\String\UnicodeString;
  */
 class Location extends ApiClient implements LocationInterface
 {
+    /**
+     * Search for locations by dimension name
+     *
+     * @param string $name The name of the character.
+     * @return object|array
+     */
+    public function dimension(string $name): object|array
+    {
+        $this->query('dimension', $name);
+        return $this->results();
+    }
+
     public function residents(): array
     {
-        $characterIds = [];
-        foreach ($this->results()->residents as $resident) {
-            $string = new UnicodeString($resident);
-            $characterIds[] = (int)$string->afterLast('/')->toString();
-        }
-
-        return $characterIds;
+        $results = $this->results();
+        $ids = [];
+        $this->mapResidents($results, $ids);
+        return $ids;
     }
+
+    private function mapResidents($location, &$residents): void
+    {
+        if (is_array($location)) {
+            foreach ($location as $loc) {
+                $this->mapResidents($loc, $residents);
+            }
+        } else {
+            foreach ($location->residents as $resident) {
+                $string = new UnicodeString($resident);
+                $residents[] = (int)$string->afterLast('/')->toString();
+            }
+        }
+    }
+
 }
