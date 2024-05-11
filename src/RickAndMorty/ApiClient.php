@@ -10,7 +10,7 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 /**
  * Class ApiClient
- * 
+ *
  * This class is responsible for making API requests to the Rick and Morty API.
  */
 class ApiClient
@@ -40,7 +40,7 @@ class ApiClient
      *
      * @param int|null ...$id The ID(s) to be included in the resource URL.
      */
-    public function updateResource(?int ...$id): void
+    public function setResource(?int ...$id): void
     {
         if (!$id) {
             $this->query = [];
@@ -52,35 +52,40 @@ class ApiClient
     /**
      * Set a query parameter for the API request.
      *
-     * @param string     $key   The query parameter key.
+     * @param string $key The query parameter key.
      * @param string|int $value The query parameter value.
      */
-    public function setQuery(string $key, string|int $value)
+    public function query(string $key, string|int $value): void
     {
         $this->query[$key] = $value;
+        $this->setData();
+    }
+
+    public function getData()
+    {
+        return $this->data;
+    }
+
+    /**
+     * Set the data returned from the API.
+     *
+     * @return void
+     */
+    protected function setData(): void
+    {
+        $this->data = $this->get();
     }
 
     /**
      * Search for characters by name.
      *
      * @param string $name The name of the character.
-     * @return object The API response.
+     * @return object|array
      */
-    public function name(string $name)
+    public function name(string $name): object|array
     {
-        $this->setQuery('name', $name);
-        return $this->get();
-    }
-
-    /**
-     * Search for characters by dimension.
-     *
-     * @param string $dimension The dimension of the character.
-     * @return object The API response.
-     */
-    public function dimension(string $dimension)
-    {
-        return $this->setQuery('dimension', $dimension);
+        $this->query('name', $name);
+        return $this->results();
     }
 
     /**
@@ -96,6 +101,11 @@ class ApiClient
         return $this->get();
     }
 
+    public function getInfo(?string $attribute)
+    {
+        return $attribute ?? null ? $this->data->info->{$attribute} : $this->data;
+    }
+
     /**
      * Make a GET request to the API.
      *
@@ -105,7 +115,7 @@ class ApiClient
     public function get(?int ...$id)
     {
         if ($id) {
-            $this->updateResource(...$id);
+            $this->setResource(...$id);
         }
 
         return json_decode(
