@@ -116,6 +116,7 @@ engaging this challenge and my prospect for the company I am applying to.
     - Removed and commented out unnecessary tailwindui defaults
 - `BAXRMC-13` Show all characters that exist (or are last seen) in a given dimension
   - Added LocationController and locations/index.html.twig
+  - Added HasPagination functionality and removed dimension from location service
 ---
 
 # Used resources
