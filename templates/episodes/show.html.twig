@@ -2,12 +2,17 @@
 {% block content %}
     {# TODO: add search #}
     {# TODO: add table overview component for location data #}
-    {{ dump(location) }}
-    {% for character in characters %}
+    {{ dump(episode) }}
+    {% for e in episode %}
 
-        <b>{{ loop.index }}</b>{{ character.name }} <br>
-        {#        {{ dump(location) }} #}
+        <b>{{ loop.index }}</b>{{ e.name }} <br>
+        {{ dump(e) }}
     {% endfor %}
+    {% for character in characters %}
+        <b>{{ loop.index }}</b>{{ character.name }} <br>
+    {% endfor %}
+    {{ dump(characters) }}
+    {#    {{ dump(pagination) }} #}
     {# TODO: add pagination #}
 {% endblock %}
     {# TODO: add secondary column #}

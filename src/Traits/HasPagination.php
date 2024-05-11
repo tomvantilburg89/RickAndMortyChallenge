@@ -53,13 +53,13 @@ trait HasPagination
         return $this->query[$key];
     }
 
-    public function results(): object|array
+    public function results(bool $hasPagination = true): array|object
     {
         if (isset($this->data->error)) {
             return $this->data;
         }
 
-        if ($this->getInfo('pages') > 1) {
+        if ($hasPagination && $this->getInfo('pages') > 1) {
             $this->setPagination();
         }
 

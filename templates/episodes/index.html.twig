@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+    {# TODO: add search #}
+    {# TODO: add table overview component for episode data #}
+    {{ dump(episodes) }}
+    {% for episode in episodes %}
+        {{ episode.name }} <br>
+        {{ dump(episode) }}
+    {% endfor %}
+    {# TODO: add pagination #}
+{% endblock %}
+    {# TODO: add secondary column #}
