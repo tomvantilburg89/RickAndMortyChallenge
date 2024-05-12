@@ -38,6 +38,7 @@ class DimensionController extends AbstractApiController
 
         return $this->render('dimensions/search.html.twig', [
             'title' => $name,
+            'joke' => $this->chuckNorris->get(),
             'location' => $location,
             'characters' => $residents
         ]);

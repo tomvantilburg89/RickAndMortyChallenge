@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Service\Character;
+use App\Service\ChuckNorris;
 use App\Service\Episode;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,7 +16,8 @@ class EpisodeController extends AbstractController
 {
     public function __construct(
         private readonly Episode $episode,
-        private readonly Character $character
+        private readonly Character $character,
+        private readonly ChuckNorris $chuckNorris
     ) {
     }
 
@@ -36,6 +38,7 @@ class EpisodeController extends AbstractController
 
         return $this->render('episodes/index.html.twig', [
             'title' => 'Episodes',
+            'joke' => $this->chuckNorris->get(),
             'episodes' => $episodes,
             'pagination' => $this->episode->getPagination()
         ]);
@@ -66,6 +69,7 @@ class EpisodeController extends AbstractController
 
         return $this->render('episodes/show.html.twig', [
             'title' => $episode->name,
+            'joke' => $this->chuckNorris->get(),
             'episode' => $episode,
             'characters' => $characters
         ]);

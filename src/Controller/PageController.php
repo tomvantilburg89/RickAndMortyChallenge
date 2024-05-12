@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Service\ChuckNorris;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -11,6 +12,12 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class PageController extends AbstractController
 {
+    public function __construct(
+        private readonly ChuckNorris $chuckNorris
+    )
+    {
+    }
+
     /**
      * Renders the homepage.
      *
@@ -21,6 +28,7 @@ class PageController extends AbstractController
     {
         return $this->render('pages/home.html.twig', [
             'title' => 'Homepage',
+            'joke' => $this->chuckNorris->get(),
             'body' => [
                 [
                     'h' => 'Welcome at the Bax Music: Rick and Morty Challenge',
@@ -46,8 +54,8 @@ class PageController extends AbstractController
     public function notFound(Request $request, ?string $name)
     {
         return $this->render('pages/404.html.twig', [
-            'title' => $request->getSession()->get('404_title'),
-            'message' => $request->getSession()->get('404_message')
+            'title' => "Not found: " . $request->getSession()->get('404_title'),
+            'message' => $this->chuckNorris->get()->value,
         ]);
     }
 }

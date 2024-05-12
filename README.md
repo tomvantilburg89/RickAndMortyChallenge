@@ -157,6 +157,7 @@ engaging this challenge and my prospect for the company I am applying to.
     - Updated character show template to show all information and updated other things as well
 - `BAXRMC-21` commit Updated comments inside code
 - `BAXRMC-23` Add nice images and bax favicon
+- `BAXRMC-35` Add an extra fun API (chuck norris) 
 ---
 
 # Used resources
