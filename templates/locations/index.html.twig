@@ -4,6 +4,8 @@
     {# TODO: add table overview component for location data #}
     {{ dump(locations) }}
     {% for location in locations %}
+
+        {% include 'parts/location.html.twig' with {'location': location} %}
         {{ location.name }} <br>
         {{ location.type }} <br>
 {#        {{ dump(location) }}#}
