@@ -43,11 +43,11 @@ engaging this challenge and my prospect for the company I am applying to.
 ### Installing and running the program
 
 ```bash
-    git clone git@github.com:tomvantilburg89/RickAndMortyChallenge.git
-```
-
-```bash
-    docker compose build --no-cache --pull && docker compose up -d
+    $ git clone https://github.com/tomvantilburg89/RickAndMortyChallenge.git
+    $ composer install
+    $ nvm use v20.13.1
+    $ npm install && npm run dev
+    $ docker compose build --no-cache --pull && docker compose up -d
 ```
 
 ---
