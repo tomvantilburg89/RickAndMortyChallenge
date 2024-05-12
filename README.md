@@ -143,6 +143,7 @@ engaging this challenge and my prospect for the company I am applying to.
     - Add character avatar to character index template
     - Update character index and add character template part
     - Changed location controller show method to make more sense
+    - Changed dimension controller to be altered for search
     - update location index template
     - Update episodes index template
 
