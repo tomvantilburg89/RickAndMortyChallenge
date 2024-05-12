@@ -154,7 +154,7 @@ engaging this challenge and my prospect for the company I am applying to.
     - Updated location show template to show all information and residents
     - Updated location show template to display text when no residents reside in location
     - Updated episode show template to show all information
-    - Update character show template to show all information
+    - Updated character show template to show all information
 
 ---
 
