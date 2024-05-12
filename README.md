@@ -138,6 +138,8 @@ engaging this challenge and my prospect for the company I am applying to.
     - Added pagination template and added to characters index
     - Added pagination to episodes index and altered pagination template
     - Added pagination to locations index 
+- `BAXRMC-26` Update all index templates to make it all pretty and add links
+  - Update characters index template 
 
 ---
 
