@@ -147,7 +147,12 @@ engaging this challenge and my prospect for the company I am applying to.
     - updated location index template accordingly
     - Updated episodes index template accordingly
 - `BAXRMC-34` Add dimension search field to navigate to a "given" dimension
-  - Updated dimension search to incorporate CSRF_TOKEN protection
+    - Updated dimension search to incorporate CSRF_TOKEN protection
+- `BAXRMC-16` Showing all information of a character (Name, species, gender, last location, dimension, etc)
+    - Update character show template to show all information
+    - Update location show template to show all information
+    - Update episode show template to show all information
+
 ---
 
 # Used resources
