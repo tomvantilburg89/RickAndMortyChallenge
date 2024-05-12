@@ -132,7 +132,8 @@ engaging this challenge and my prospect for the company I am applying to.
   - Refactored residents and character map to incorporate hook
   - commit Added character loop to character.show template
 - `BAXRMC-30` Update navigation template to accomodate Locations, Episodes and Characters
-  - 
+  - added navigation items and updated homepagecontroller with lipsum generated text
+
 ---
 
 # Used resources
