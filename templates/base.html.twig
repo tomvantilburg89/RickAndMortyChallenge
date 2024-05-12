@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="https://www.bax-shop.nl/templates/baxshop/img/logo/baxshop_fav_32x32.png">
 
-    <title>{% block title %}Welcome!{% endblock %}</title>
+
+
+    <title>{% block title %}{{ title ?? 'No page title is set' }}{% endblock %}</title>
 
     {% block stylesheets %}
         {{ encore_entry_link_tags('app') }}

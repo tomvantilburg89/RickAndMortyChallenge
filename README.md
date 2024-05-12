@@ -158,6 +158,8 @@ engaging this challenge and my prospect for the company I am applying to.
 - `BAXRMC-21` commit Updated comments inside code
 - `BAXRMC-23` Add nice images and bax favicon
 - `BAXRMC-35` Add an extra fun API (chuck norris) 
+- `BAXRMC-22` Remove alpine.js, add ability to open dropdown with jquery
+  - removed alpine.js
 ---
 
 # Used resources
