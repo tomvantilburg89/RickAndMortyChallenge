@@ -148,6 +148,9 @@ engaging this challenge and my prospect for the company I am applying to.
 - `BAXRMC-35` Add an extra fun API (chuck norris) 
 - `BAXRMC-22` Remove alpine.js, add ability to open dropdown with jquery
   - removed alpine.js
+- `BAXRMC-36` Create index method in dimension controller and index template
+  - Added index method to dimension controller and index template
+  - Updated navigation to include the new index for dimensions
 ---
 
 # Used resources
