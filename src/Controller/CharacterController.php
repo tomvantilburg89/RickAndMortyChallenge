@@ -57,7 +57,7 @@ class CharacterController extends AbstractController
             ]);
         }
 
-        return $this->render('characters/show.html.twig', [
+        return $this->render('characters/search.html.twig', [
             'title' => $character->name,
             'character' => $character,
         ]);
