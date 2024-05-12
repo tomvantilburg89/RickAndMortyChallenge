@@ -7,6 +7,5 @@
         {{ episode.name }} <br>
         {{ dump(episode) }}
     {% endfor %}
-    {# TODO: add pagination #}
+    {% include 'parts/pagination.html.twig' with {'pagination': pagination, 'paginationPath': 'episodes'} %}
 {% endblock %}
-    {# TODO: add secondary column #}

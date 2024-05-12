@@ -26,10 +26,12 @@
     </div>
 
     <main class="-mt-32">
-        <div class="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
-            <div class="rounded-lg bg-white px-5 py-6 shadow sm:px-6">
-                <!-- Your content -->
+        <div class="mx-auto max-w-7xl py-8 sm:px-6 lg:px-8">
+            <!-- Your content -->
+            <div class=" bg-white px-4 py-5 sm:px-6 rounded-lg">
+                <h3 class="text-base font-semibold leading-6 text-gray-900">Job Postings</h3>
                 {% block content %}{% endblock %}
+                {% block pagination %}{% endblock %}
             </div>
         </div>
     </main>

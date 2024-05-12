@@ -46,7 +46,7 @@ class CharacterController extends AbstractController
      * @param int $id The character id
      * @return Response The response object
      */
-    #[Route('/character/{id}')]
+    #[Route('/character/{id}', name: 'characterShow')]
     public function show(int $id): Response
     {
         $character = $this->character->get($id);
