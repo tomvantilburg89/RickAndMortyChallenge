@@ -19,9 +19,25 @@ class DimensionController extends AbstractApiController
     #[Route('/dimension/{name}')]
     public function show(string $name): Response
     {
-        $this->setControllerData($this->location->dimension($name));
+        $location = $this->location->dimension($name);
 
-        return parent::show($name);
+        if ($this->location->hasError()) {
+            return $this->redirectToRoute('route_404', [
+                'name' => strtolower((new AsciiSlugger('en'))->slug($location[0]->dimension)->toString())
+            ]);
+        }
+
+        // get all resident Ids
+        $residentIds = $this->location->characters($location);
+
+        // Get all residents inside current location
+        $residents = $this->character->get(...$residentIds);
+
+        return $this->render('locations/show.html.twig', [
+            'title' => $location[0]->dimension,
+            'location' => $location,
+            'characters' => $residents
+        ]);
     }
 
 }

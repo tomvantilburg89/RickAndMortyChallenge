@@ -6,6 +6,8 @@ namespace App\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\String\Slugger\AsciiSlugger;
+use Symfony\Component\String\UnicodeString;
 
 class LocationController extends AbstractApiController
 {
@@ -35,14 +37,30 @@ class LocationController extends AbstractApiController
     /**
      * Renders the location page.
      *
-     * @param string $name The location name
+     * @param int $id The location id
      * @return Response The response object
      */
-    #[Route('/location/{name}')]
-    public function show(string $name): Response
+    #[Route('/location/{id}', name: 'locationShow')]
+    public function show(int $id): Response
     {
-        $this->setControllerData($this->location->name($name));
+        $location = $this->location->get($id);
 
-        return parent::show($name);
+        if ($this->location->hasError()) {
+            return $this->redirectToRoute('route_404', [
+                'name' => strtolower((new AsciiSlugger('en'))->slug($location->name)->toString())
+            ]);
+        }
+
+        // get all resident Ids
+        $residentIds = $this->location->characters($location);
+
+        // Get all residents inside current location
+        $residents = $this->character->get(...$residentIds);
+
+        return $this->render('locations/show.html.twig', [
+            'title' => $location->name,
+            'location' => $location,
+            'characters' => $residents
+        ]);
     }
 }

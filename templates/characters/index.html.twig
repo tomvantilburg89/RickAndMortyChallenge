@@ -1,12 +1,11 @@
 {% extends 'base.html.twig' %}
 {% block content %}
-    {# TODO: add search #}
-    {# TODO: add table overview component for character data #}
-    {{ dump(characters) }}
-    {% for character in characters %}
-        {{ character.name }} <br>
-        {{ character.type }} <br>
-        {#        {{ dump(character) }} #}
-    {% endfor %}
-    {% include 'parts/pagination.html.twig' with {'pagination': pagination, 'paginationPath': 'characters'} %}
+    <ul role="list" class="divide-y divide-gray-100">
+        {% for character in characters %}
+            {% include 'parts/character-index.html.twig' with {'character': character} %}
+        {% endfor %}
+    </ul>
+    {% if pagination %}
+        {% include 'parts/pagination.html.twig' with {'pagination': pagination, 'paginationPath': 'characters'} %}
+    {% endif %}
 {% endblock %}
