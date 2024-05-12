@@ -18,13 +18,16 @@ class DimensionController extends AbstractApiController
      * @return Response The response object
      */
     #[Route('/dimensions', name: 'dimensions')]
-    public function dimensions()
+    public function dimensions(): Response
     {
         $location = $this->location->get();
         $dimensions = [];
 
         for ($i = 1; $i < $location->info->pages; $i++) {
             foreach ($this->location->page($i) as $result) {
+                if (empty($result->residents) || $result->dimension === 'unknown') {
+                    continue;
+                }
                 if (!in_array($result->dimension, $dimensions)) {
                     $dimensions[$result->dimension] = (object)[
                         'name' => $result->dimension,
@@ -54,7 +57,7 @@ class DimensionController extends AbstractApiController
 
         if ($this->location->hasError()) {
             return $this->redirectToRoute('route_404', [
-                'name' => strtolower((new AsciiSlugger('en'))->slug($dimension->name)->toString())
+                'name' => strtolower((new AsciiSlugger('en'))->slug($dimension->dimension)->toString())
             ]);
         }
 
@@ -64,40 +67,9 @@ class DimensionController extends AbstractApiController
         // Get all residents inside current location
         $residents = $this->character->get(...$residentIds);
 
-        return $this->render('locations/show.html.twig', [
+        return $this->render('dimensions/search.html.twig', [
             'title' => $dimension->dimension,
             'location' => $dimension,
-            'characters' => $residents
-        ]);
-    }
-
-    /**
-     * Displays the dimension page.
-     *
-     * @param Request $request The request object
-     * @return Response The response object
-     */
-    #[Route('dimension', name: 'dimensionSearchResult')]
-    public function searchResult(Request $request): Response
-    {
-        $name = $request->getSession()->get('dimension');
-        $location = $this->location->dimension($name);
-
-        if ($this->location->hasError()) {
-            return $this->redirectToRoute('route_404', [
-                'name' => strtolower((new AsciiSlugger('en'))->slug($name)->toString())
-            ]);
-        }
-
-        // Get all resident Ids
-        $residentIds = $this->location->mapData($location);
-
-        // Get all residents inside current location
-        $residents = $this->character->get(...$residentIds);
-
-        return $this->render('dimensions/search.html.twig', [
-            'title' => $name,
-            'location' => $location,
             'characters' => $residents
         ]);
     }
@@ -114,9 +86,10 @@ class DimensionController extends AbstractApiController
         $csrf_token = $request->getPayload()->get('token');
 
         if ($this->isCsrfTokenValid('search_dimension', $csrf_token)) {
-            $session = new Session();
-            $session->set('dimension', $request->get('search'));
-            return $this->redirectToRoute('dimensionSearchResult', [], 301);
+            $dimension = $this->location->dimension($request->get('search'));
+            return $this->redirectToRoute('dimensionShow', [
+                'id' => $dimension->id
+            ], 301);
         } else {
             return $this->redirectToRoute('route_404', [
                 'name' => 'Access denied'

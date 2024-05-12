@@ -145,12 +145,14 @@ engaging this challenge and my prospect for the company I am applying to.
     - Updated character show template to show all information and updated other things as well
 - `BAXRMC-21` commit Updated comments inside code
 - `BAXRMC-23` Add nice images and bax favicon
-- `BAXRMC-35` Add an extra fun API (chuck norris) 
+- `BAXRMC-35` Add an extra fun API (chuck norris)
 - `BAXRMC-22` Remove alpine.js, add ability to open dropdown with jquery
-  - removed alpine.js
+    - removed alpine.js
 - `BAXRMC-36` Create index method in dimension controller and index template
-  - Added index method to dimension controller and index template
-  - Updated navigation to include the new index for dimensions
+    - Added index method to dimension controller and index template
+    - Updated navigation to include the new index for dimensions
+- `BAXRMC-37` Update dimensionController to incorporate Show and handle like location
+
 ---
 
 # Used resources
