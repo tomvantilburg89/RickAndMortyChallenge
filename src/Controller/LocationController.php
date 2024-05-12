@@ -58,7 +58,7 @@ class LocationController extends AbstractApiController
         $residents = $this->character->get(...$residentIds);
 
         return $this->render('locations/show.html.twig', [
-            'title' => $location->name,
+            'title' => "Location: $location->name",
             'location' => $location,
             'characters' => $residents
         ]);
