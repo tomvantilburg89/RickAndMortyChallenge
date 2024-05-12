@@ -24,6 +24,6 @@ class Location extends ApiClient implements LocationInterface
     public function dimension(string $name): array|object
     {
         $this->query('dimension', $name);
-        return $this->results();
+        return $this->results(false);
     }
 }
