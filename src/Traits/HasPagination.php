@@ -40,7 +40,7 @@ trait HasPagination
      * @param int|null $page The page number.
      * @return array|object The data for the specified page.
      */
-    public function page(?int $page)
+    public function page(?int $page): array|object
     {
         // Set page to query parameters
         $this->query('page', $page ?? 1);
@@ -54,7 +54,7 @@ trait HasPagination
      * @param string $key The query parameter key.
      * @return mixed The value of the query parameter.
      */
-    public function getQuery(string $key)
+    public function getQuery(string $key): mixed
     {
         return $this->query[$key];
     }

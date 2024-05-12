@@ -178,7 +178,7 @@ class ApiClient
      * @param string|null $attribute The attribute name.
      * @return mixed The value of the attribute, or the entire API response if the attribute is null.
      */
-    public function getInfo(?string $attribute)
+    public function getInfo(?string $attribute): mixed
     {
         return $attribute ?? null ? $this->data->info->{$attribute} : $this->data;
     }
@@ -189,7 +189,7 @@ class ApiClient
      * @param int|null ...$id The ID(s) to be included in the resource URL.
      * @return object The API response.
      */
-    public function get(?int ...$id)
+    public function get(?int ...$id): object
     {
         if ($id) {
             $this->setResource(...$id);
