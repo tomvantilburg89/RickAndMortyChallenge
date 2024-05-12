@@ -168,8 +168,6 @@ Here are the resources used to develop this code challenge application for the `
 - [Install Tailwind CSS with Symfony](https://tailwindcss.com/docs/guides/symfony)
 - [TailwindUI](https://tailwindui.com)
     - Using my own login to make use of tailwindUI components, knew it would come in handy someday
-- [Tailwind using html and your own JS](https://tailwindui.com/documentation#using-html-and-your-own-js)
-- [Alpine.JS](https://alpinejs.dev/)
 - [Symfony - Controller](https://symfony.com/doc/current/controller.html)
 - [Symfony - Session](https://symfony.com/doc/current/session.html)
 - [Symfony - Linking to pages](https://symfony.com/doc/current/templates.html#templates-link-to-pages)
