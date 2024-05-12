@@ -147,6 +147,7 @@ engaging this challenge and my prospect for the company I am applying to.
     - updated location index template accordingly
     - Updated episodes index template accordingly
 - `BAXRMC-34` Add dimension search field to navigate to a "given" dimension
+  - Updated dimension search to incorporate CSRF_TOKEN protection
 ---
 
 # Used resources
