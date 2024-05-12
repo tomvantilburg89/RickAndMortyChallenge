@@ -1,14 +1,87 @@
 {% extends 'base.html.twig' %}
 {% block content %}
-    {# TODO: add search #}
-    {# TODO: add table overview component for location data #}
-    {{ dump(character) }}
-    {% for person in character %}
+    <div class="overflow-hidden">
+        <div class="border-gray-100">
+            <dl class="divide-y divide-gray-100">
+                <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <dt class="text-sm font-medium text-gray-900">
+                        Avatar
+                    </dt>
+                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                        <img class="rounded-full w-12" src="{{ character.image }}"/>
+                    </dd>
+                </div>
+                <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <dt class="text-sm font-medium text-gray-900">Name</dt>
+                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{ character.name }}</dd>
+                </div>
+                <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <dt class="text-sm font-medium text-gray-900">Status</dt>
+                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{ character.status }}</dd>
+                </div>
+                <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <dt class="text-sm font-medium text-gray-900">Species</dt>
+                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{ character.species }}</dd>
+                </div>
+                <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <dt class="text-sm font-medium text-gray-900">Gender</dt>
+                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{ character.gender }}</dd>
+                </div>
+                <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <dt class="text-sm font-medium text-gray-900">Origin</dt>
+                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{ character.origin.name }}</dd>
+                </div>
+                <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <dt class="text-sm font-medium text-gray-900">Location</dt>
+                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{ character.location.name }}</dd>
+                </div>
+                {% if character.type %}
+                    <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-900">Type</dt>
+                        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                            {{ character.type }}
+                        </dd>
+                    </div>
+                {% endif %}
+                <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <dt class="text-sm font-medium leading-6 text-gray-900">Featured in episode</dt>
+                    {% if episodes|length > 1 %}
+                        <dd class="mt-2 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
 
-        <b>{{ loop.index }}</b>{{ person.name }} <br>
-        {#        {{ dump(location) }} #}
-    {% endfor %}
-    {#    {{ dump(pagination) }} #}
-    {# TODO: add pagination #}
+                            <ul role="list" class="divide-y divide-gray-100">
+                            {% for episode in episodes %}
+                                <li class="flex items-center justify-between gap-x-6 py-5">
+                                    <div class="min-w-0">
+                                        <div class="flex items-start gap-x-3">
+                                            <p class="text-sm font-semibold leading-6 text-gray-900">{{ episode.name }}</p>
+{#                                            <p class="rounded-md whitespace-nowrap mt-0.5 px-1.5 py-0.5 text-xs font-medium ring-1 ring-inset text-green-700 bg-green-50 ring-green-600/20">Complete</p>#}
+                                        </div>
+                                        <div class="mt-1 flex items-center gap-x-2 text-xs leading-5 text-gray-500">
+                                            <p class="whitespace-nowrap">Aired {{ episode.air_date }}</p>
+                                            <svg viewBox="0 0 2 2" class="h-0.5 w-0.5 fill-current">
+                                                <circle cx="1" cy="1" r="1" />
+                                            </svg>
+                                            <p class="truncate">{{ episode.episode }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-none items-center gap-x-4">
+                                        <a href="{{ path('episodeShow', {'id': episode.id}) }}" class="hidden rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:block">
+                                            View episode
+                                        </a>
+
+                                    </div>
+                                </li>
+                            {% endfor %}
+                            </ul>
+                        </dd>
+                    {% else %}
+                        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                            Character is not in any episode
+                        </dd>
+                    {% endif %}
+
+                </div>
+            </dl>
+        </div>
+    </div>
 {% endblock %}
-    {# TODO: add secondary column #}

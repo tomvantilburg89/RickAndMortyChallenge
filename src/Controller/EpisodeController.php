@@ -59,7 +59,7 @@ class EpisodeController extends AbstractController
         }
         
         // Get all character Ids
-        $characterIds = $this->episode->characters($episode, 'characters');
+        $characterIds = $this->episode->mapData($episode, 'characters');
         // Get all residents inside current location
         $characters = $this->character->get(...$characterIds);
 

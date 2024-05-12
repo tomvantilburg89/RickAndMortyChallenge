@@ -52,7 +52,7 @@ class LocationController extends AbstractApiController
         }
 
         // get all resident Ids
-        $residentIds = $this->location->characters($location);
+        $residentIds = $this->location->mapData($location);
 
         // Get all residents inside current location
         $residents = $this->character->get(...$residentIds);
