@@ -137,9 +137,11 @@ engaging this challenge and my prospect for the company I am applying to.
     - Create pagination view and add it to the CharacterController index template
     - Added pagination template and added to characters index
     - Added pagination to episodes index and altered pagination template
-    - Added pagination to locations index 
+    - Added pagination to locations index
 - `BAXRMC-26` Update all index templates to make it all pretty and add links
-  - Update characters index template 
+    - Update characters index template
+    - Add character avatar to character index template
+    - Update episodes index template
 
 ---
 
