@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Service\Character;
+use App\Service\ChuckNorris;
 use App\Service\Episode;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,7 +16,8 @@ class CharacterController extends AbstractController
 {
     public function __construct(
         private readonly Character $character,
-        private readonly Episode $episode
+        private readonly Episode $episode,
+        private readonly ChuckNorris $chuckNorris
     ) {
     }
 
@@ -64,8 +66,11 @@ class CharacterController extends AbstractController
         // Get all episodes in which the character appears
         $episodes = $this->episode->get(...$episodeIds);
 
+        $characterQuote = $this->chuckNorris->joke($character->name);
+
         return $this->render('characters/show.html.twig', [
             'title' => $character->name,
+            'quote' => $characterQuote,
             'character' => $character,
             'episodes' => $episodes
         ]);

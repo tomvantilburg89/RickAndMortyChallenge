@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Service\Character;
+use App\Service\ChuckNorris;
 use App\Service\Location;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
