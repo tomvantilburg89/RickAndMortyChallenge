@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Service\Character;
+use App\Service\Episode;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -13,7 +14,8 @@ use Symfony\Component\String\Slugger\AsciiSlugger;
 class CharacterController extends AbstractController
 {
     public function __construct(
-        private readonly Character $character
+        private readonly Character $character,
+        private readonly Episode $episode
     ) {
     }
 
@@ -56,10 +58,16 @@ class CharacterController extends AbstractController
                 'name' => strtolower((new AsciiSlugger('en'))->slug($character->name)->toString())
             ]);
         }
+        // get all resident Ids
+        $episodeIds = $this->character->mapData($character, 'episode');
 
-        return $this->render('characters/search.html.twig', [
+        // Get all residents inside current location
+        $episodes = $this->episode->get(...$episodeIds);
+
+        return $this->render('characters/show.html.twig', [
             'title' => $character->name,
             'character' => $character,
+            'episodes' => $episodes
         ]);
     }
 }

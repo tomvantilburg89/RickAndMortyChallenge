@@ -1,13 +1,40 @@
 {% extends 'base.html.twig' %}
 {% block content %}
-    {# TODO: add search #}
-    {# TODO: add table overview component for location data #}
-    {{ dump(location) }}
-    {% for character in characters %}
+    <div class="overflow-hidden">
+        <div class=" border-gray-100">
+            <dl class="divide-y divide-gray-100">
+                <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <dt class="text-sm font-medium text-gray-900">Name</dt>
+                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{ location.name }}</dd>
+                </div>
+                <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <dt class="text-sm font-medium text-gray-900">Type</dt>
+                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{ location.type }}</dd>
+                </div>
+                <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <dt class="text-sm font-medium text-gray-900">Dimension</dt>
+                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{ location.dimension }}</dd>
+                </div>
+                <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <dt class="text-sm font-medium leading-6 text-gray-900">Residents</dt>
+                    {% if characters|length > 1 %}
+                        <dd class="mt-2 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
 
-        <b>{{ loop.index }}</b>{{ character.name }} <br>
-        {#        {{ dump(location) }} #}
-    {% endfor %}
-    {# TODO: add pagination #}
+                            <div class="isolate flex -space-x-1 ">
+
+                                {% for character in characters %}
+                                    <a href="{{ path('characterShow', {'id': character.id}) }}">
+                                        <img class="relative inline-block h-4 w-4 hover:h-16 hover:w-16 hover:-mt-6 hover:-mb-6 rounded-full ring-2 ring-white"
+                                             src="{{ character.image }}" alt="">
+                                    </a>
+                                {% endfor %}
+                            </div>
+                        </dd>
+                    {% else %}
+                        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">Location has no residents</dd>
+                    {% endif %}
+                </div>
+            </dl>
+        </div>
+    </div>
 {% endblock %}
-    {# TODO: add secondary column #}

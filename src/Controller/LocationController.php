@@ -52,13 +52,13 @@ class LocationController extends AbstractApiController
         }
 
         // get all resident Ids
-        $residentIds = $this->location->characters($location);
+        $residentIds = $this->location->mapData($location);
 
         // Get all residents inside current location
         $residents = $this->character->get(...$residentIds);
 
         return $this->render('locations/show.html.twig', [
-            'title' => $location->name,
+            'title' => "Location: $location->name",
             'location' => $location,
             'characters' => $residents
         ]);

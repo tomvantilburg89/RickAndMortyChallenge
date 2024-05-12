@@ -49,11 +49,11 @@ class DimensionController extends AbstractApiController
         if ($this->isCsrfTokenValid('search_dimension', $csrf_token)) {
             $session = new Session();
             $session->set('dimension', $request->get('search'));
-            return $this->redirectToRoute('dimension');
+            return $this->redirectToRoute('dimension', [], 301);
         } else {
             return $this->redirectToRoute('route_404', [
                 'name' => 'Access denied'
-            ]);
+            ], 403);
         }
     }
 

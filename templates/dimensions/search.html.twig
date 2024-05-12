@@ -1,13 +1,8 @@
 {% extends 'base.html.twig' %}
 {% block content %}
-    {# TODO: add search #}
-    {# TODO: add table overview component for location data #}
-    {{ dump(location) }}
-    {% for character in characters %}
-
-        <b>{{ loop.index }}</b>{{ character.name }} <br>
-        {#        {{ dump(location) }} #}
-    {% endfor %}
-    {# TODO: add pagination #}
+    <ul role="list" class="divide-y divide-gray-100">
+        {% for character in characters %}
+            {% include 'parts/character-index.html.twig' with {'character': character} %}
+        {% endfor %}
+    </ul>
 {% endblock %}
-    {# TODO: add secondary column #}

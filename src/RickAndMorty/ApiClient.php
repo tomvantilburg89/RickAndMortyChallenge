@@ -126,18 +126,18 @@ class ApiClient
         return $this->get();
     }
 
-    public function characters(object|array $data, string $hook = 'residents'): array
+    public function mapData(object|array $data, string $hook = 'residents'): array
     {
         $ids = [];
-        $this->mapCharacters($data, $ids, $hook);
+        $this->map($data, $ids, $hook);
         return $ids;
     }
 
-    protected function mapCharacters($array, &$ids, $hook = 'residents'): void
+    protected function map($array, &$ids, $hook = 'residents'): void
     {
         if (is_array($array)) {
             foreach ($array as $arr) {
-                $this->mapCharacters($arr, $ids);
+                $this->map($arr, $ids);
             }
         } else {
             foreach ($array->{$hook} as $resident) {
