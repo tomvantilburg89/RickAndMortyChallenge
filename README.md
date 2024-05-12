@@ -152,7 +152,8 @@ engaging this challenge and my prospect for the company I am applying to.
     - Fixed Character and Episode controller show methods
     - Added characters list to dimension search view
     - Updated location show template to show all information and residents
-    - Update episode show template to show all information
+    - Updated location show template to display text when no residents reside in location
+    - Updated episode show template to show all information
     - Update character show template to show all information
 
 ---

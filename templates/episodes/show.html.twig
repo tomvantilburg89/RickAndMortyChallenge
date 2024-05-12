@@ -1,18 +1,50 @@
 {% extends 'base.html.twig' %}
 {% block content %}
-    {# TODO: add search #}
-    {# TODO: add table overview component for location data #}
-    {{ dump(episode) }}
-    {% for e in episode %}
+    <div class="overflow-hidden">
+        <div class=" border-gray-100">
+            <dl class="divide-y divide-gray-100">
+                <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <dt class="text-sm font-medium text-gray-900">Name</dt>
+                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{ episode.name }}</dd>
+                </div>
+                <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <dt class="text-sm font-medium text-gray-900">Air date</dt>
+                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{ episode.air_date }}</dd>
+                </div>
+                <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <dt class="text-sm font-medium text-gray-900">Episode</dt>
+                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{ episode.episode }}</dd>
+                </div>
+                <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <dt class="text-sm font-medium leading-6 text-gray-900">Characters in episode</dt>
+                    {% if characters|length > 1 %}
+                        <dd class="mt-2 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                            <ul role="list" class="divide-y divide-gray-100 rounded-md border border-gray-200">
+                                {% for character in characters %}
 
-        <b>{{ loop.index }}</b>{{ e.name }} <br>
-        {{ dump(e) }}
-    {% endfor %}
-    {% for character in characters %}
-        <b>{{ loop.index }}</b>{{ character.name }} <br>
-    {% endfor %}
-    {{ dump(characters) }}
-    {#    {{ dump(pagination) }} #}
-    {# TODO: add pagination #}
+                                    <li class="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
+                                        <div class="flex w-0 flex-1 items-center">
+                                            <img class="h-7 w-7 flex-shrink-0 text-gray-400 rounded-full"
+                                                 src="{{ character.image }}"/>
+                                            <div class="ml-4 flex min-w-0 flex-1 gap-2">
+                                                <span class="truncate font-medium">{{ character.name }}</span>
+                                                <span class="flex-shrink-0 text-gray-400">{{ character.gender }}</span>
+                                            </div>
+                                        </div>
+                                        <div class="ml-4 flex-shrink-0">
+                                            {% include 'parts/status-badge.html.twig' with {'status': character.status} %}
+                                            <a href="{{ path('characterShow', {'id': character.id}) }}"
+                                               class="font-medium text-indigo-600 hover:text-indigo-500">Details</a>
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </dd>
+                    {% else %}
+                        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">Episode has no characters</dd>
+                    {% endif %}
+                </div>
+            </dl>
+        </div>
+    </div>
 {% endblock %}
-    {# TODO: add secondary column #}
