@@ -32,12 +32,12 @@
                     </a>
 
                     <!-- Current: "z-10 bg-indigo-600 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", Default: "text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0" -->
-                    {% if pagination.current > 2 and pagination.current - 1 < pagination.pages - 2 %}
+                    {% if pagination.current > 2 and pagination.current - 1 < pagination.pages - 1 %}
 
                         {% include 'parts/pagination/pagination-item.html.twig' with {'path': paginationPath, 'id': 1} %}
 
                         <span class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-700 ring-1 ring-inset ring-gray-300 focus:outline-offset-0">...</span>
-                        {% for i in pagination.current-1..pagination.current+1 %}
+                        {% for i in pagination.current..pagination.current %}
                             {% if(i == pagination.current) %}
                                 {% include 'parts/pagination/pagination-item-current.html.twig' with {'path': paginationPath, 'id': i} %}
                             {% else %}
@@ -50,6 +50,7 @@
                         {% include 'parts/pagination/pagination-item.html.twig' with {'path': paginationPath, 'id': pagination.pages} %}
 
                     {% else %}
+
                         {% for i in 1..3 %}
                             {% if(i == pagination.current) %}
 
@@ -59,17 +60,17 @@
                                 {% include 'parts/pagination/pagination-item.html.twig' with {'path': paginationPath, 'id': i} %}
                             {% endif %}
                         {% endfor %}
-                        <span class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-700 ring-1 ring-inset ring-gray-300 focus:outline-offset-0">...</span>
+                        {% if pagination.pages > 3 %}
+                            <span class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-700 ring-1 ring-inset ring-gray-300 focus:outline-offset-0">...</span>
 
-                        {% for i in 40..42 %}
-                            {% if(i == pagination.current) %}
+                            {% if(pagination.pages == pagination.current) %}
 
-                                {% include 'parts/pagination/pagination-item-current.html.twig' with {'path': paginationPath, 'id': i} %}
+                                {% include 'parts/pagination/pagination-item-current.html.twig' with {'path': paginationPath, 'id': pagination.current} %}
 
                             {% else %}
-                                {% include 'parts/pagination/pagination-item.html.twig' with {'path': paginationPath, 'id': i} %}
+                                {% include 'parts/pagination/pagination-item.html.twig' with {'path': paginationPath, 'id': pagination.pages} %}
                             {% endif %}
-                        {% endfor %}
+                        {% endif %}
                     {% endif %}
 
 

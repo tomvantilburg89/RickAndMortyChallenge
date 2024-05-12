@@ -134,7 +134,10 @@ engaging this challenge and my prospect for the company I am applying to.
 - `BAXRMC-30` Update navigation template to accomodate Locations, Episodes and Characters
     - added navigation items and updated homepagecontroller with lipsum generated text
 - `BAXRMC-32` Make twig template for pagination on all views
-  - Create pagination view and add it to the CharacterController index template
+    - Create pagination view and add it to the CharacterController index template
+    - Added pagination template and added to characters index
+    - Added pagination to episodes index and altered pagination template
+    - added pagination to locations index 
 
 ---
 
