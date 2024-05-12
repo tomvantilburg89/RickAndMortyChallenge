@@ -15,7 +15,7 @@ class LocationController extends AbstractApiController
      * @param int|null $page The page number
      * @return Response The response object
      */
-    #[Route('/locations/{page?}', name: 'all_locations')]
+    #[Route('/locations/{page?}', name: 'locations')]
     public function index(?int $page): Response
     {
         $locations = $this->location->page($page);

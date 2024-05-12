@@ -23,7 +23,7 @@ class CharacterController extends AbstractController
      * @param int|null $page The page number
      * @return Response The response object
      */
-    #[Route('/characters/{page?}', name: 'all_characters')]
+    #[Route('/characters/{page?}', name: 'characters')]
     public function index(?int $page): Response
     {
         $characters = $this->character->page($page);

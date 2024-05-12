@@ -25,7 +25,7 @@ class EpisodeController extends AbstractController
      * @param int|null $page The page number
      * @return Response The response object
      */
-    #[Route('/episodes/{page?}', name: 'all_episodes')]
+    #[Route('/episodes/{page?}', name: 'episodes')]
     public function index(?int $page): Response
     {
         $episodes = $this->episode->page($page);
