@@ -8,7 +8,6 @@
         {{ location.type }} <br>
 {#        {{ dump(location) }}#}
     {% endfor %}
-    {{ dump(pagination) }}
-    {# TODO: add pagination #}
+    {% include 'parts/pagination.html.twig' with {'pagination': pagination, 'paginationPath': 'locations'} %}
 {% endblock %}
     {# TODO: add secondary column #}

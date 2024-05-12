@@ -137,7 +137,7 @@ engaging this challenge and my prospect for the company I am applying to.
     - Create pagination view and add it to the CharacterController index template
     - Added pagination template and added to characters index
     - Added pagination to episodes index and altered pagination template
-    - added pagination to locations index 
+    - Added pagination to locations index 
 
 ---
 
