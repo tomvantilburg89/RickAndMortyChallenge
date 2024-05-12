@@ -73,6 +73,11 @@ class ApiClient
         $this->setData();
     }
 
+    /**
+     * Check if there is an error in the API response.
+     *
+     * @return bool True if there is an error, false otherwise.
+     */
     public function hasError(): bool
     {
         if ($this->data->error ?? null) {
@@ -86,6 +91,11 @@ class ApiClient
         return false;
     }
 
+    /**
+     * Get the data returned from the API.
+     *
+     * @return array|object The data returned from the API.
+     */
     public function getData(): array|object
     {
         return $this->data;
@@ -105,7 +115,7 @@ class ApiClient
      * Search by name.
      *
      * @param string $name The name of a character/location.
-     * @return array|object
+     * @return array|object The search results.
      */
     public function name(string $name): array|object
     {
@@ -126,6 +136,13 @@ class ApiClient
         return $this->get();
     }
 
+    /**
+     * Map the data returned from the API to an array of IDs.
+     *
+     * @param object|array $data The data returned from the API.
+     * @param string $hook The property name to map.
+     * @return array The array of IDs.
+     */
     public function mapData(object|array $data, string $hook = 'residents'): array
     {
         $ids = [];
@@ -133,7 +150,15 @@ class ApiClient
         return $ids;
     }
 
-    protected function map($array, &$ids, $hook = 'residents'): void
+    /**
+     * Recursively map the data to extract IDs.
+     *
+     * @param mixed $array The data to map.
+     * @param array $ids The array to store the extracted IDs.
+     * @param string $hook The property name to map.
+     * @return void
+     */
+    protected function map($array, array &$ids, string $hook = 'residents'): void
     {
         if (is_array($array)) {
             foreach ($array as $arr) {
@@ -147,7 +172,13 @@ class ApiClient
         }
     }
 
-    public function getInfo(?string $attribute)
+    /**
+     * Get the value of a specific attribute from the API response.
+     *
+     * @param string|null $attribute The attribute name.
+     * @return mixed The value of the attribute, or the entire API response if the attribute is null.
+     */
+    public function getInfo(?string $attribute): mixed
     {
         return $attribute ?? null ? $this->data->info->{$attribute} : $this->data;
     }
@@ -158,7 +189,7 @@ class ApiClient
      * @param int|null ...$id The ID(s) to be included in the resource URL.
      * @return object The API response.
      */
-    public function get(?int ...$id)
+    public function get(?int ...$id): object
     {
         if ($id) {
             $this->setResource(...$id);

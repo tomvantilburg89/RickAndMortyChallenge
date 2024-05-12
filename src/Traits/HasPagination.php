@@ -40,7 +40,7 @@ trait HasPagination
      * @param int|null $page The page number.
      * @return array|object The data for the specified page.
      */
-    public function page(?int $page)
+    public function page(?int $page): array|object
     {
         // Set page to query parameters
         $this->query('page', $page ?? 1);
@@ -48,11 +48,23 @@ trait HasPagination
         return $this->results();
     }
 
-    public function getQuery(string $key)
+    /**
+     * Get the value of a query parameter.
+     *
+     * @param string $key The query parameter key.
+     * @return mixed The value of the query parameter.
+     */
+    public function getQuery(string $key): mixed
     {
         return $this->query[$key];
     }
 
+    /**
+     * Get the results with pagination.
+     *
+     * @param bool $hasPagination Whether to include pagination.
+     * @return array|object The results with pagination.
+     */
     public function results(bool $hasPagination = true): array|object
     {
         if (isset($this->data->error)) {
@@ -69,7 +81,7 @@ trait HasPagination
     /**
      * Set the pagination values.
      *
-     * @return ApiClient
+     * @return ApiClient The API client instance.
      */
     private function setPagination(): ApiClient
     {

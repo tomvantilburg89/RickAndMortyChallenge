@@ -10,7 +10,7 @@ namespace App\RickAndMorty\Interfaces;
 interface EpisodeInterface
 {
     /**
-     * The base URI for the location API.
+     * The base URI for the episode API.
      */
     public const URI = 'https://rickandmortyapi.com/api/episode';
 }
