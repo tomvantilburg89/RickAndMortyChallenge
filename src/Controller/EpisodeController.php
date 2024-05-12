@@ -64,7 +64,7 @@ class EpisodeController extends AbstractController
         $characters = $this->character->get(...$characterIds);
 
 
-        return $this->render('episodes/show.html.twig', [
+        return $this->render('episodes/search.html.twig', [
             'title' => $episode->name,
             'episode' => $episode,
             'characters' => $characters
