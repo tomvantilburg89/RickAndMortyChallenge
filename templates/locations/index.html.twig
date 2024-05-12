@@ -1,7 +1,9 @@
 {% extends 'base.html.twig' %}
 {% block content %}
-    {% for location in locations %}
-        {% include 'parts/location.html.twig' with {'location': location} %}
-    {% endfor %}
+    <ul role="list" class="divide-y divide-gray-100">
+        {% for location in locations %}
+            {% include 'parts/location-index.html.twig' with {'location': location} %}
+        {% endfor %}
+    </ul>
     {% include 'parts/pagination.html.twig' with {'pagination': pagination, 'paginationPath': 'locations'} %}
 {% endblock %}

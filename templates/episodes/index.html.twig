@@ -1,11 +1,9 @@
 {% extends 'base.html.twig' %}
 {% block content %}
-    {# TODO: add search #}
-    {# TODO: add table overview component for episode data #}
-    {{ dump(episodes) }}
-    {% for episode in episodes %}
-        {{ episode.name }} <br>
-        {{ dump(episode) }}
-    {% endfor %}
+    <ul role="list" class="divide-y divide-gray-100">
+        {% for episode in episodes %}
+            {% include 'parts/episode-index.html.twig' with {'episode': episode} %}
+        {% endfor %}
+    </ul>
     {% include 'parts/pagination.html.twig' with {'pagination': pagination, 'paginationPath': 'episodes'} %}
 {% endblock %}

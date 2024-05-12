@@ -2,7 +2,7 @@
 {% block content %}
     <ul role="list" class="divide-y divide-gray-100">
         {% for character in characters %}
-            {% include 'parts/character.html.twig' with {'character': character} %}
+            {% include 'parts/character-index.html.twig' with {'character': character} %}
         {% endfor %}
     </ul>
     {% if pagination %}

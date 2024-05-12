@@ -47,7 +47,7 @@ class EpisodeController extends AbstractController
      * @param int $id The episode id
      * @return Response The response object
      */
-    #[Route('/episode/{id}')]
+    #[Route('/episode/{id}', name: 'episodeShow')]
     public function show(int $id): Response
     {
         $episode = $this->episode->get($id);
