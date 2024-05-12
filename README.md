@@ -131,6 +131,8 @@ engaging this challenge and my prospect for the company I am applying to.
   - Updated episodes template files and controller
   - Refactored residents and character map to incorporate hook
   - commit Added character loop to character.show template
+- `BAXRMC-30` Update navigation template to accomodate Locations, Episodes and Characters
+  - 
 ---
 
 # Used resources
@@ -154,7 +156,8 @@ Here are the resources used to develop this code challenge application for the `
 - [Tailwind using html and your own JS](https://tailwindui.com/documentation#using-html-and-your-own-js)
 - [Alpine.JS](https://alpinejs.dev/)
 - [Symfony - Controller](https://symfony.com/doc/current/controller.html)
-- [Symfony session](https://symfony.com/doc/current/session.html)
+- [Symfony - Session](https://symfony.com/doc/current/session.html)
+- [Symfony - Linking to pages](https://symfony.com/doc/current/templates.html#templates-link-to-pages)
 
 ---
 
