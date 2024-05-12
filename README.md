@@ -141,6 +141,7 @@ engaging this challenge and my prospect for the company I am applying to.
 - `BAXRMC-26` Update all index templates to make it all pretty and add links
     - Update characters index template
     - Add character avatar to character index template
+    - Update character index and add character template part
     - Update episodes index template
 
 ---
