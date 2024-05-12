@@ -29,7 +29,6 @@ class LocationController extends AbstractApiController
 
         return $this->render('locations/index.html.twig', [
             'title' => 'Locations',
-            'joke' => $this->chuckNorris->get(),
             'locations' => $locations,
             'pagination' => $this->location->getPagination()
         ]);
@@ -60,7 +59,6 @@ class LocationController extends AbstractApiController
 
         return $this->render('locations/show.html.twig', [
             'title' => "Location: $location->name",
-            'joke' => $this->chuckNorris->get(),
             'location' => $location,
             'characters' => $residents
         ]);

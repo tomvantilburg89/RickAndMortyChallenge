@@ -39,7 +39,6 @@ class CharacterController extends AbstractController
 
         return $this->render('characters/index.html.twig', [
             'title' => 'Characters',
-            'joke' => $this->chuckNorris->get(),
             'characters' => $characters,
             'pagination' => $this->character->getPagination()
         ]);
@@ -67,9 +66,11 @@ class CharacterController extends AbstractController
         // Get all episodes in which the character appears
         $episodes = $this->episode->get(...$episodeIds);
 
+        $characterQuote = $this->chuckNorris->joke($character->name);
+
         return $this->render('characters/show.html.twig', [
             'title' => $character->name,
-            'joke' => $this->chuckNorris->get(),
+            'quote' => $characterQuote,
             'character' => $character,
             'episodes' => $episodes
         ]);

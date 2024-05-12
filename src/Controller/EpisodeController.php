@@ -16,8 +16,7 @@ class EpisodeController extends AbstractController
 {
     public function __construct(
         private readonly Episode $episode,
-        private readonly Character $character,
-        private readonly ChuckNorris $chuckNorris
+        private readonly Character $character
     ) {
     }
 
@@ -38,7 +37,6 @@ class EpisodeController extends AbstractController
 
         return $this->render('episodes/index.html.twig', [
             'title' => 'Episodes',
-            'joke' => $this->chuckNorris->get(),
             'episodes' => $episodes,
             'pagination' => $this->episode->getPagination()
         ]);
@@ -69,7 +67,6 @@ class EpisodeController extends AbstractController
 
         return $this->render('episodes/show.html.twig', [
             'title' => $episode->name,
-            'joke' => $this->chuckNorris->get(),
             'episode' => $episode,
             'characters' => $characters
         ]);

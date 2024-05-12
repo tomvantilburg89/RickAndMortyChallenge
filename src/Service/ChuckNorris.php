@@ -15,5 +15,8 @@ use Symfony\Component\String\UnicodeString;
  */
 class ChuckNorris extends ApiClient implements ChuckNorrisInterface
 {
-
+    public function joke(string $replace)
+    {
+        return str_replace('Chuck Norris', $replace, $this->get()->value);
+    }
 }

@@ -19,8 +19,7 @@ abstract class AbstractApiController extends AbstractController
      */
     public function __construct(
         protected readonly Location $location,
-        protected readonly Character $character,
-        protected readonly ChuckNorris $chuckNorris
+        protected readonly Character $character
     ) {
     }
 
