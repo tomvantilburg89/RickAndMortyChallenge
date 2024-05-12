@@ -85,15 +85,22 @@ class DimensionController extends AbstractApiController
     {
         $csrf_token = $request->getPayload()->get('token');
 
-        if ($this->isCsrfTokenValid('search_dimension', $csrf_token)) {
-            $dimension = $this->location->dimension($request->get('search'));
-            return $this->redirectToRoute('dimensionShow', [
-                'id' => $dimension->id
-            ], 301);
-        } else {
+        if (!$this->isCsrfTokenValid('search_dimension', $csrf_token)) {
             return $this->redirectToRoute('route_404', [
                 'name' => 'Access denied'
             ], 403);
         }
+
+        $name = $request->get('search');
+        $dimension = $this->location->dimension($name);
+
+        if ($this->location->hasError()) {
+            return $this->redirectToRoute('route_404', [
+                'name' => strtolower((new AsciiSlugger('en'))->slug($name)->toString())
+            ]);
+        }
+        return $this->redirectToRoute('dimensionShow', [
+            'id' => $dimension->id
+        ], 301);
     }
 }
