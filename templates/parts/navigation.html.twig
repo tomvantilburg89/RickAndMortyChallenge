@@ -9,7 +9,7 @@
                 <div class="hidden lg:ml-10 lg:block">
                     <div class="flex space-x-4">
                         <!-- Current: "bg-pink-700 text-white", Default: "text-white hover:bg-pink-500 hover:bg-opacity-75" -->
-                        {% set items = ['homepage', 'episodes', 'characters', 'locations'] %}
+                        {% set items = ['homepage', 'characters', 'episodes', 'locations'] %}
                         {% for item in items %}
                             {% include 'parts/navigation-item.html.twig' with {'href': item} %}
                         {% endfor %}

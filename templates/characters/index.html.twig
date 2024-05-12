@@ -2,13 +2,14 @@
 {% block content %}
     {# TODO: add search #}
     {# TODO: add table overview component for character data #}
-    {{ dump(characters) }}
+        {{ dump(characters) }}
     {% for character in characters %}
         {{ character.name }} <br>
         {{ character.type }} <br>
-{#        {{ dump(character) }}#}
+        {#        {{ dump(character) }} #}
     {% endfor %}
-    {{ dump(pagination) }}
+
+        {% include 'parts/pagination.html.twig' with {'pagination': pagination, 'paginationPath': 'characters'} %}
     {# TODO: add pagination #}
 {% endblock %}
     {# TODO: add secondary column #}

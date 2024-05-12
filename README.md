@@ -117,22 +117,24 @@ engaging this challenge and my prospect for the company I am applying to.
     - Removed Nick Been's PHP Client, it did not suit the scope of the challenge
     - Update Location Service
 - `BAXRMC-13` Show all characters that exist (or are last seen) in a given dimension
-  - Finalized ApiClient and added functionality to retrieve location by name and page
-  - Made sure we have pagination feature for retrieving the list of locactions
-  - Added hasError() functionality
+    - Finalized ApiClient and added functionality to retrieve location by name and page
+    - Made sure we have pagination feature for retrieving the list of locactions
+    - Added hasError() functionality
 - `BAXRMC-14` Show all characters that exist (or are last seen) in a given dimension
-  - Updated readme.md developer flow log at `BAXRMC-13`
-  - Added functionality to retrieve by Dimension in the LocationService
-  - Create Dimension Controller, use LocationController as reference.
-  - Show all characters in a given dimension
+    - Updated readme.md developer flow log at `BAXRMC-13`
+    - Added functionality to retrieve by Dimension in the LocationService
+    - Create Dimension Controller, use LocationController as reference.
+    - Show all characters in a given dimension
 - `BAXRMC-15` Show all characters that partake in a given episode
-  - Create Episode Service to accommodate episodes 
-  - Added character controller in order to prepare for later views
-  - Updated episodes template files and controller
-  - Refactored residents and character map to incorporate hook
-  - commit Added character loop to character.show template
+    - Create Episode Service to accommodate episodes
+    - Added character controller in order to prepare for later views
+    - Updated episodes template files and controller
+    - Refactored residents and character map to incorporate hook
+    - commit Added character loop to character.show template
 - `BAXRMC-30` Update navigation template to accomodate Locations, Episodes and Characters
-  - added navigation items and updated homepagecontroller with lipsum generated text
+    - added navigation items and updated homepagecontroller with lipsum generated text
+- `BAXRMC-32` Make twig template for pagination on all views
+  - Create pagination view and add it to the CharacterController index template
 
 ---
 

@@ -89,9 +89,10 @@ trait HasPagination
     public function getPagination(): object
     {
         return (object)[
+            'current' => $this->query['page'],
             'pages' => $this->total,
             'next' => $this->next,
-            'prev' => $this->prev
+            'prev' => $this->prev,
         ];
     }
 }
