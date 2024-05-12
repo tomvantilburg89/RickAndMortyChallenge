@@ -150,8 +150,9 @@ engaging this challenge and my prospect for the company I am applying to.
     - Updated dimension search to incorporate CSRF_TOKEN protection
 - `BAXRMC-16` Showing all information of a character (Name, species, gender, last location, dimension, etc)
     - Fixed Character and Episode controller show methods
+    - Added characters list to dimension search view
+    - Updated location show template to show all information
     - Update character show template to show all information
-    - Update location show template to show all information
     - Update episode show template to show all information
 
 ---

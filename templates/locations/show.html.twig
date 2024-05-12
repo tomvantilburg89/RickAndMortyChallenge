@@ -1,9 +1,49 @@
 {% extends 'base.html.twig' %}
 {% block content %}
-    {{ dump(location) }}
-    {% for character in characters %}
+    <div class="overflow-hidden">
+        <div class="px-4 py-6 sm:px-6">
+            <p class="mt-1 max-w-2xl text-sm leading-6 text-gray-500">Information about this location</p>
+        </div>
+        <div class="border-t border-gray-100">
+            <dl class="divide-y divide-gray-100">
+                <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <dt class="text-sm font-medium text-gray-900">Name</dt>
+                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{ location.name }}</dd>
+                </div>
+                <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <dt class="text-sm font-medium text-gray-900">Type</dt>
+                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{ location.type }}</dd>
+                </div>
+                <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <dt class="text-sm font-medium text-gray-900">Dimension</dt>
+                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{ location.dimension }}</dd>
+                </div>
+                <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <dt class="text-sm font-medium leading-6 text-gray-900">Residents</dt>
+                    <dd class="mt-2 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                        <ul role="list" class="divide-y divide-gray-100 rounded-md border border-gray-200">
 
-        <b>{{ loop.index }}</b>{{ character.name }} <br>
-        {#        {{ dump(location) }} #}
-    {% endfor %}
+                            {% for character in characters %}
+
+                                <li class="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
+                                    <div class="flex w-0 flex-1 items-center">
+                                        <img class="h-7 w-7 flex-shrink-0 text-gray-400 rounded-full" src="{{ character.image }}"/>
+                                        <div class="ml-4 flex min-w-0 flex-1 gap-2">
+                                            <span class="truncate font-medium">{{ character.name }}</span>
+                                            <span class="flex-shrink-0 text-gray-400">{{ character.gender }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="ml-4 flex-shrink-0">
+                                        {% include 'parts/status-badge.html.twig' with {'status': character.status} %}
+                                        <a href="{{ path('characterShow', {'id': character.id}) }}" class="font-medium text-indigo-600 hover:text-indigo-500">Details</a>
+                                    </div>
+                                </li>
+
+                            {% endfor %}
+                        </ul>
+                    </dd>
+                </div>
+            </dl>
+        </div>
+    </div>
 {% endblock %}
