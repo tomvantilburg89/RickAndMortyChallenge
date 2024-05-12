@@ -10,7 +10,7 @@ namespace App\RickAndMorty\Interfaces;
 interface CharacterInterface
 {
     /**
-     * The base URI for the location API.
+     * The base URI for the character API.
      */
     public const URI = 'https://rickandmortyapi.com/api/character';
 }

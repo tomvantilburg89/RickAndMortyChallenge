@@ -20,7 +20,7 @@ class EpisodeController extends AbstractController
     }
 
     /**
-     * Renders the index page for all locations.
+     * Renders the index page for all episodes.
      *
      * @param int|null $page The page number
      * @return Response The response object
@@ -29,9 +29,9 @@ class EpisodeController extends AbstractController
     public function index(?int $page): Response
     {
         $episodes = $this->episode->page($page);
-        // If location page returns error we just want to redirect to the locations main page
-        if ($locations->error ?? null) {
-            return $this->redirectToRoute('route_404', ['title' => "Page: /location/$page does not exist"]);
+        // If episode page returns error we just want to redirect to the episodes main page
+        if ($episodes->error ?? null) {
+            return $this->redirectToRoute('route_404', ['title' => "Page: /episodes/$page does not exist"]);
         }
 
         return $this->render('episodes/index.html.twig', [
@@ -42,7 +42,7 @@ class EpisodeController extends AbstractController
     }
 
     /**
-     * Renders the location page.
+     * Renders the episode page.
      *
      * @param int $id The episode id
      * @return Response The response object
@@ -57,10 +57,10 @@ class EpisodeController extends AbstractController
                 'name' => strtolower((new AsciiSlugger('en'))->slug($episode->name)->toString())
             ]);
         }
-        
+
         // Get all character Ids
         $characterIds = $this->episode->mapData($episode, 'characters');
-        // Get all residents inside current location
+        // Get all characters inside current episode
         $characters = $this->character->get(...$characterIds);
 
 

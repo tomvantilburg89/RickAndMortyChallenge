@@ -12,9 +12,14 @@ use Symfony\Component\String\Slugger\AsciiSlugger;
 
 class DimensionController extends AbstractApiController
 {
-
+    /**
+     * Displays the dimension page.
+     *
+     * @param Request $request The request object
+     * @return Response The response object
+     */
     #[Route('dimension', name: 'dimension')]
-    public function show(Request $request)
+    public function show(Request $request): Response
     {
         $name = $request->getSession()->get('dimension');
         $location = $this->location->dimension($name);
@@ -24,8 +29,9 @@ class DimensionController extends AbstractApiController
                 'name' => strtolower((new AsciiSlugger('en'))->slug($name)->toString())
             ]);
         }
-        // get all resident Ids
-        $residentIds = $this->location->characters($location);
+
+        // Get all resident Ids
+        $residentIds = $this->location->mapData($location);
 
         // Get all residents inside current location
         $residents = $this->character->get(...$residentIds);
@@ -38,14 +44,16 @@ class DimensionController extends AbstractApiController
     }
 
     /**
-     * Renders the location page.
+     * Renders the dimension search page.
      *
+     * @param Request $request The request object
      * @return Response The response object
      */
     #[Route('/search/dimension', name: 'dimension_search')]
     public function search(Request $request): Response
     {
         $csrf_token = $request->getPayload()->get('token');
+
         if ($this->isCsrfTokenValid('search_dimension', $csrf_token)) {
             $session = new Session();
             $session->set('dimension', $request->get('search'));
@@ -56,5 +64,4 @@ class DimensionController extends AbstractApiController
             ], 403);
         }
     }
-
 }
