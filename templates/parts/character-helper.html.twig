@@ -1,0 +1,11 @@
+<dd class="mt-2 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+    <div class="isolate flex -space-x-1 ">
+
+        {% for character in characters %}
+            <a href="{{ path('characterShow', {'id': character.id}) }}">
+                <img class="relative inline-block h-4 w-4 hover:h-16 hover:w-16 hover:-mt-6 hover:-mb-6 rounded-full ring-2 ring-white"
+                     src="{{ character.image }}" alt="">
+            </a>
+        {% endfor %}
+    </div>
+</dd>
