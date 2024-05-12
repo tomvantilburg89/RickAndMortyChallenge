@@ -54,18 +54,6 @@ engaging this challenge and my prospect for the company I am applying to.
 
 # Development flow log
 
-### 1. Project Initialisation
-
-1. Create git repository on new account
-2. Install symfony CLI in local `WSL2` environment
-    ```bash
-    wget https://get.symfony.com/cli/installer -O - | bash
-    ```
-3. Setup JIRA Project for Bax Rick and Morty Challenge
-    - JIRA issue key: `BAXRMC`
-
-### 2. JIRA Project issues
-
 <i>Note: tasks used in JIRA have been executed in the order displayed below</i>
 
 - `BAXRMC-1` Create new symfony project
