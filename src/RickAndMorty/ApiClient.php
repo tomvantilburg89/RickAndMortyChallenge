@@ -189,7 +189,7 @@ class ApiClient
      * @param int|null ...$id The ID(s) to be included in the resource URL.
      * @return object The API response.
      */
-    public function get(?int ...$id): object
+    public function get(?int ...$id): object|array
     {
         if ($id) {
             $this->setResource(...$id);
