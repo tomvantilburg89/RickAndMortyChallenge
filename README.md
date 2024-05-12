@@ -150,7 +150,7 @@ engaging this challenge and my prospect for the company I am applying to.
   - removed alpine.js
 - `BAXRMC-36` Create index method in dimension controller and index template
   - Added index method to dimension controller and index template
-  - 
+  - Updated navigation to include the new index for dimensions
 ---
 
 # Used resources
