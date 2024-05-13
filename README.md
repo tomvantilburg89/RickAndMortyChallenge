@@ -15,7 +15,7 @@ This section will explain in full detail how to run the project and how to use t
 This section will keep track of the entire development process, how I engaged in the project and what steps I took in
 order to give a full detailed insight in my development process.
 
-in **JIRA ** are all my `kanban` tasks from my personal JIRA account. Because I am used working this way
+in **JIRA** are all my `kanban` tasks from my personal JIRA account. Because I am used working this way
 for a couple of years, I keep this habit also for my personal projects because I like to be able to see what I did, what
 I need to do and what my overal process was in all my development projects to date. Also it keeps me sharp and focussed
 when working in development teams.
